@@ -329,3 +329,9 @@ code { word-break: break-all; font-size: 12px; }
 .chart .pill rect { fill: var(--ink); }
 .chart .pill text { fill: var(--surface); font-size: 11px; font-weight: 650; }
 .chart .pill text.dim { opacity: .7; font-weight: 500; }
+
+/* Encabezado y pestañas que se esconden al bajar */
+.top, .tabs { transition: transform .28s cubic-bezier(.2, .7, .2, 1); will-change: transform; }
+body.bars-hidden .top { transform: translateY(-100%); }
+body.bars-hidden .tabs { transform: translateY(100%); }
+@media (prefers-reduced-motion: reduce) { .top, .tabs { transition: none; } }

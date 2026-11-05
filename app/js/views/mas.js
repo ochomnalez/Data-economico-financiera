@@ -52,8 +52,8 @@ export const comercio = {
     const sum12 = (a, i) => a.slice(i - 11, i + 1).reduce((s, v) => s + (v || 0), 0);
     const e12 = sum12(c.expo, L), i12 = sum12(c.impo, L), e12p = sum12(c.expo, L - 12), i12p = sum12(c.impo, L - 12);
     const head = card(stats([
-      { label: "Exportaciones", value: usdM(c.expo[L]), foot: `${pfs((c.expo[L] / c.expo[L - 12] - 1) * 100)} i.a.` },
-      { label: "Importaciones", value: usdM(c.impo[L]), foot: `${pfs((c.impo[L] / c.impo[L - 12] - 1) * 100)} i.a.` },
+      { label: "Exportaciones", value: usdM(c.expo[L]), foot: `${pfs((c.expo[L] / c.expo[L - 12] - 1) * 100)} interanual` },
+      { label: "Importaciones", value: usdM(c.impo[L]), foot: `${pfs((c.impo[L] / c.impo[L - 12] - 1) * 100)} interanual` },
       { label: c.saldo[L] >= 0 ? "Superávit" : "Déficit", value: usdM(Math.abs(c.saldo[L])), foot: "saldo del mes" },
     ]) + `<p class="small muted" style="margin:12px 0 0">Últimos 12 meses: exportaciones ${bn(e12)} (${pfs((e12 / e12p - 1) * 100)}), importaciones ${bn(i12)} (${pfs((i12 / i12p - 1) * 100)}), saldo ${bn(e12 - i12)}.</p>`,
     { title: `Intercambio comercial · ${period(P[L], { long: true })}`, sub: "Millones de dólares",
@@ -88,16 +88,16 @@ export const mayoristas = {
     const P = m.p, L = P.length - 1;
     const ipcVm = Object.fromEntries(ipc.p.map((p, i) => [p, ipc.general.vm[i]]));
     const head = card(stats([
-      { label: "IPIM", value: n(m.IPIM.vm[L]), unit: "%", foot: `${pf(m.IPIM.via[L])} i.a.` },
-      { label: "IPIB", value: n(m.IPIB.vm[L]), unit: "%", foot: `${pf(m.IPIB.via[L])} i.a.` },
-      { label: "IPP", value: n(m.IPP.vm[L]), unit: "%", foot: `${pf(m.IPP.via[L])} i.a.` },
+      { label: "IPIM · mayoristas", value: n(m.IPIM.vm[L]), unit: "%", foot: `${pf(m.IPIM.via[L])} interanual` },
+      { label: "IPIB · sin impuestos", value: n(m.IPIB.vm[L]), unit: "%", foot: `${pf(m.IPIB.via[L])} interanual` },
+      { label: "IPP · productor", value: n(m.IPP.vm[L]), unit: "%", foot: `${pf(m.IPP.via[L])} interanual` },
     ]), { title: `Sistema de precios mayoristas · ${period(P[L], { long: true })}`, sub: "Variación mensual",
       infoText: "<b>IPIM</b>: precios mayoristas internos (incluye impuestos e importados). <b>IPIB</b>: igual pero sin impuestos. <b>IPP</b>: precios básicos del productor, solo producción nacional. Los precios mayoristas suelen trasladarse al consumidor con algunos meses de demora." });
     const vs = chartCard({ title: "Mayoristas vs. consumidor", sub: "Variación mensual", range: 24,
       render: () => ({ type: "line", x: P, fmt: pf, series: [
-        { name: "Mayoristas (IPIM)", values: m.IPIM.vm, color: "var(--s2)" },
-        { name: "Consumidor (IPC)", values: P.map((p) => ipcVm[p] ?? null), color: "var(--s1)" }] }) });
-    const comps = card(switcher({ options: [["IPIM", "IPIM"], ["IPIB", "IPIB"], ["IPP", "IPP"]],
+        { name: "IPIM · Precios mayoristas", values: m.IPIM.vm, color: "var(--s2)" },
+        { name: "IPC · Precios al consumidor", values: P.map((p) => ipcVm[p] ?? null), color: "var(--s1)" }] }) });
+    const comps = card(switcher({ options: [["IPIM · mayoristas", "IPIM"], ["IPIB · sin imp.", "IPIB"], ["IPP · productor", "IPP"]],
       render: (k) => bars(m[k].componentes.map((c) => ({ label: c.name, value: c.vm[L] })).sort((a, b) => b.value - a.value), { fmt: pf, color: "var(--s2)" }) }),
     { title: "Por componente", sub: `Variación mensual · ${period(P[L])}`, source: "INDEC, SIPM" });
     return section("Precios mayoristas", head + vs + comps) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
@@ -155,13 +155,13 @@ export const industria = {
     const P = d.p, g = d.general;
     const L = lastOf(g.vm).i;
     const head = card(stats([
-      { label: "Mensual (desest.)", value: n(g.vm[L], 1, { sign: true }), unit: "%" },
+      { label: "Mensual (sin estacionalidad)", value: n(g.vm[L], 1, { sign: true }), unit: "%" },
       { label: "Interanual", value: n(g.via[L], 1, { sign: true }), unit: "%" },
       { label: "Acumulado del año", value: n(g.acum[L], 1, { sign: true }), unit: "%", foot: "vs. mismo período" },
     ]), { title: `Producción industrial · ${period(P[L], { long: true })}`, sub: "IPI manufacturero",
       infoText: "El índice de producción industrial manufacturero mide el volumen físico que producen las fábricas. Es uno de los primeros datos que muestra cómo viene la actividad." });
     const nivel = chartCard({ title: "Nivel de producción", sub: "Serie desestacionalizada, base 2004 = 100", range: 60,
-      render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [{ name: "IPI manufacturero", values: g.desest, color: "var(--s1)", area: true }] }) });
+      render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [{ name: "Producción industrial (IPI manufacturero)", values: g.desest, color: "var(--s1)", area: true }] }) });
     const vars = chartCard({ title: "Variación interanual", range: 24, render: () => ({ type: "col", x: P, values: g.via, name: "Interanual", fmt: pfs }) });
     const divs = card(bars(d.divisiones.map((x) => ({ label: x.name, value: x.via[L] })).sort((a, b) => b.value - a.value), { fmt: pfs, color: "var(--s3)" }),
       { title: "Por rama", sub: `Variación interanual · ${period(P[L])}`, source: "INDEC" });
@@ -178,13 +178,13 @@ export const mineria = {
     const prod = Object.fromEntries(d.productos.map((p) => [p.name, p]));
     const ia = (p) => { const v = prod[p]?.v; return v && v[L] && v[L - 12] ? (v[L] / v[L - 12] - 1) * 100 : null; };
     const head = card(stats([
-      { label: "Mensual (desest.)", value: n(g.vm[L], 1, { sign: true }), unit: "%" },
+      { label: "Mensual (sin estacionalidad)", value: n(g.vm[L], 1, { sign: true }), unit: "%" },
       { label: "Interanual", value: g.via.length ? n(g.via[L], 1, { sign: true }) : "s/d", unit: "%" },
       { label: "Petróleo", value: n(ia("Petróleo crudo"), 1, { sign: true }), unit: "%", foot: "producción i.a." },
-    ]), { title: `Producción minera · ${period(P[L], { long: true })}`, sub: "IPI minero",
+    ]), { title: `Producción minera · ${period(P[L], { long: true })}`, sub: "Índice de producción industrial minero (IPI minero)",
       infoText: "Mide la producción de petróleo, gas, minerales metalíferos (oro, plata, litio, cobre), y rocas y minerales para construcción. El crecimiento de Vaca Muerta se ve en el petróleo y gas <b>no convencional</b>." });
     const lvl = chartCard({ title: "Nivel de producción", sub: "Serie desestacionalizada, base 2016 = 100", range: 60,
-      render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [{ name: "IPI minero", values: g.desest, color: "var(--s6)", area: true }] }) });
+      render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [{ name: "Producción minera (IPI minero)", values: g.desest, color: "var(--s6)", area: true }] }) });
     const oil = chartCard({ title: "Petróleo crudo", sub: "Miles de m³ por mes", range: 60,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 0), series: [
         { name: "No convencional", values: prod["Petróleo crudo no convencional"]?.v || [], color: "var(--s1)" },

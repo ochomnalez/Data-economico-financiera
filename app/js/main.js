@@ -77,6 +77,7 @@ async function go() {
   const r = ROUTES[raw] || ROUTES[""];
   const view = r.v;
   const my = ++token;
+  document.body.classList.remove("bars-hidden");
   header(raw in ROUTES ? raw : "", view);
   $tabs.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === r.tab));
   $main.innerHTML = `<div class="skeleton" style="margin-top:12px"></div><div class="skeleton" style="margin-top:12px;height:220px"></div>`;
@@ -99,7 +100,19 @@ async function go() {
 }
 
 window.addEventListener("hashchange", go);
-window.addEventListener("scroll", () => $top.classList.toggle("scrolled", scrollY > 4), { passive: true });
+// Al bajar se esconden el encabezado y las pestañas; al subir vuelven.
+let lastY = scrollY, ticking = false;
+function onScroll() {
+  const y = Math.max(0, scrollY);
+  const dy = y - lastY;
+  const nearBottom = innerHeight + y >= document.documentElement.scrollHeight - 24;
+  $top.classList.toggle("scrolled", y > 4);
+  if (y < 80 || nearBottom || dy < -6) document.body.classList.remove("bars-hidden");
+  else if (dy > 6) document.body.classList.add("bars-hidden");
+  if (Math.abs(dy) > 6) lastY = y;
+  ticking = false;
+}
+window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 go();
 
 if ("serviceWorker" in navigator) {
