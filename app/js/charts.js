@@ -56,33 +56,72 @@ function el(tag, attrs = {}, parent) {
   return e;
 }
 
-function tooltipEl(container) {
-  let t = container.querySelector(".tooltip");
-  if (!t) { t = document.createElement("div"); t.className = "tooltip"; container.appendChild(t); }
-  return t;
-}
-function placeTip(tip, container, px, py) {
-  const cw = container.clientWidth;
-  const tw = tip.offsetWidth || 140;
-  let left = px + 14;
-  if (left + tw > cw) left = px - tw - 14;
-  if (left < 0) left = Math.max(0, Math.min(cw - tw, px - tw / 2));
-  tip.style.left = left + "px";
-  tip.style.top = Math.max(0, py - 10) + "px";
-}
-
 const xLabel = (p, long) => period(p, long ? {} : { short: true });
 
+// ── Deslizador ("scrubber") y etiquetas compactas ─────────────
+const SCRUB = 30; // alto reservado debajo del eje X para el deslizador
+
+/** Lectura compacta (pastilla oscura) en la franja superior.
+ *  parts: [{text, dot?, dim?}] — se centra en cx y no se sale del gráfico. */
+function readout(parent, parts, cx, y, { W, minX = 0 }) {
+  const g = el("g", { class: "pill" }, parent);
+  const r = el("rect", { rx: 6, ry: 6, y, height: 20 }, g);
+  let cur = 7;
+  for (const pt of parts) {
+    if (pt.dot) { el("circle", { cx: cur + 4, cy: y + 10, r: 4, fill: pt.dot }, g); cur += 11; }
+    const t = el("text", { x: cur, y: y + 14, class: pt.dim ? "dim" : "" }, g);
+    t.textContent = pt.text;
+    cur += (t.getComputedTextLength ? t.getComputedTextLength() : pt.text.length * 6.2) + 8;
+  }
+  const w = cur - 1;
+  r.setAttribute("width", w);
+  const x = Math.max(minX, Math.min(W - w - 1, cx - w / 2));
+  g.setAttribute("transform", `translate(${x},0)`);
+  return { x, w };
+}
+
 /**
- * Gráfico de líneas.
+ * Agrega el deslizador al pie del gráfico y conecta los gestos.
+ * pos(i) → coordenada X del dato i; pick(px) → índice más cercano.
+ */
+function scrubber(svg, { W, H, x0, x1, n, pos, pick, onChange, initial }) {
+  const y = H - 11;
+  const g = el("g", { class: "scrub" }, svg);
+  el("line", { x1: x0, x2: x1, y1: y, y2: y, stroke: "var(--hair)", "stroke-width": 4, "stroke-linecap": "round" }, g);
+  const fill = el("line", { x1: x0, x2: x0, y1: y, y2: y, stroke: "var(--accent)", "stroke-width": 4, "stroke-linecap": "round", opacity: 0.35 }, g);
+  const thumb = el("circle", { r: 8, cy: y, cx: x0, fill: "var(--accent)", stroke: "var(--surface)", "stroke-width": 2.5 }, g);
+  const hitS = el("rect", { x: x0 - 14, y: y - 15, width: x1 - x0 + 28, height: 30, fill: "transparent", class: "scrub-hit" }, svg);
+  const hitC = el("rect", { x: x0 - 6, y: 0, width: x1 - x0 + 12, height: H - SCRUB, fill: "transparent" }, svg);
+  let cur = -1;
+  const set = (i) => {
+    i = Math.max(0, Math.min(n - 1, i));
+    if (i === cur) return;
+    cur = i;
+    const px = pos(i);
+    thumb.setAttribute("cx", px); fill.setAttribute("x2", px);
+    onChange(i);
+  };
+  const at = (ev) => { const r = svg.getBoundingClientRect(); set(pick(ev.clientX - r.left)); };
+  for (const h of [hitS, hitC]) {
+    h.addEventListener("pointerdown", (ev) => { if (h === hitS) h.setPointerCapture?.(ev.pointerId); at(ev); });
+    h.addEventListener("pointermove", (ev) => { if (ev.pointerType === "mouse" || ev.buttons || h.hasPointerCapture?.(ev.pointerId) || h === hitC) at(ev); });
+  }
+  set(initial);
+  return set;
+}
+
+const lastIdx = (vals) => { let i = vals.length - 1; while (i >= 0 && (vals[i] === null || vals[i] === undefined)) i--; return i; };
+
+/**
+ * Gráfico de líneas con deslizador.
  * series: [{name, values, color, area}]
  */
 export function lineChart(container, o) {
-  const { x, series, fmt = (v) => v, height = 210, zero = false, endLabels = true, xlong = false } = o;
+  const { x, series, fmt = (v) => v, height = 210, zero = false, xlong = false } = o;
   mount(container, (W) => {
     container.querySelector("svg")?.remove();
-    const H = height;
-    const m = { l: 40, r: endLabels ? 46 : 10, t: 10, b: 24 };
+    const H = height + SCRUB;
+    const m = { l: 40, r: 14, t: 28, b: 22 + SCRUB };
     const vals = series.flatMap((s) => s.values).filter((v) => v !== null && v !== undefined);
     let min = Math.min(...vals), max = Math.max(...vals);
     if (zero) { min = Math.min(0, min); max = Math.max(0, max); }
@@ -95,18 +134,20 @@ export function lineChart(container, o) {
 
     const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img",
       "aria-label": o.label || series.map((s) => s.name).join(", ") });
+    container.prepend(svg);
     const g = el("g", { class: "grid" }, svg);
     for (const t of ticks) {
       el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), class: t === 0 ? "zero" : "" }, g);
       const tx = el("text", { x: m.l - 6, y: Y(t) + 3.5, "text-anchor": "end" }, svg);
       tx.textContent = o.yfmt ? o.yfmt(t) : fmt(t);
     }
+    const xly = m.t + ih + 16;
     for (const i of xTickIdx(x, W < 380 ? 4 : 6)) {
-      const tx = el("text", { x: X(i), y: H - 6, "text-anchor": i === 0 ? "start" : i === n - 1 ? "end" : "middle" }, svg);
+      const tx = el("text", { x: X(i), y: xly, "text-anchor": i === 0 ? "start" : i === n - 1 ? "end" : "middle" }, svg);
       tx.textContent = /^\d{4}-\d{2}$/.test(x[i]) && n > 30 ? x[i].slice(0, 4) : xLabel(x[i], xlong);
     }
     for (const s of series) {
-      let d = "", started = false, a = "", first = null, lastI = null;
+      let d = "", started = false, first = null, lastI = null;
       s.values.forEach((v, i) => {
         if (v === null || v === undefined) { started = false; return; }
         d += (started ? "L" : "M") + X(i).toFixed(1) + "," + Y(v).toFixed(1);
@@ -115,65 +156,32 @@ export function lineChart(container, o) {
       });
       if (s.area && first !== null) {
         const base = Y(Math.max(lo, Math.min(0, hi)) || lo);
-        a = d + `L${X(lastI).toFixed(1)},${base}L${X(first).toFixed(1)},${base}Z`;
-        el("path", { d: a, fill: s.color, opacity: 0.1 }, svg);
+        el("path", { d: d + `L${X(lastI).toFixed(1)},${base}L${X(first).toFixed(1)},${base}Z`, fill: s.color, opacity: 0.1 }, svg);
       }
       el("path", { d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round",
         "stroke-dasharray": s.dash || "" }, svg);
     }
-    // Etiquetas al final (≤3 series), evitando superposición
-    if (endLabels) {
-      const labels = series.map((s) => {
-        let i = s.values.length - 1;
-        while (i >= 0 && (s.values[i] === null || s.values[i] === undefined)) i--;
-        return i < 0 ? null : { s, i, y: Y(s.values[i]) };
-      }).filter(Boolean);
-      for (const L of labels) {
-        el("circle", { cx: X(L.i), cy: L.y, r: 4, fill: L.s.color, stroke: "var(--surface)", "stroke-width": 2 }, svg);
-      }
-      if (labels.length <= 3) {
-        labels.sort((a, b) => a.y - b.y);
-        for (let k = 1; k < labels.length; k++) if (labels[k].y - labels[k - 1].y < 13) labels[k].y = labels[k - 1].y + 13;
-        for (const L of labels) {
-          const t = el("text", { x: X(L.i) + 8, y: L.y + 4, class: "end-label" }, svg);
-          t.textContent = fmt(L.s.values[L.i]);
-        }
-      }
-    }
-    // Capa de interacción
-    const xh = el("line", { class: "xhair", y1: m.t, y2: m.t + ih, x1: 0, x2: 0, visibility: "hidden" }, svg);
-    const dots = series.map((s) => el("circle", { r: 4.5, fill: s.color, stroke: "var(--surface)", "stroke-width": 2, cx: 0, cy: 0, visibility: "hidden" }, svg));
-    const hit = el("rect", { x: m.l - 6, y: 0, width: iw + 12, height: H, fill: "transparent" }, svg);
-    container.prepend(svg);
-    const tip = tooltipEl(container);
-    const move = (ev) => {
-      const r = svg.getBoundingClientRect();
-      const px = ev.clientX - r.left;
-      let i = Math.round(((px - m.l) / iw) * (n - 1));
-      i = Math.max(0, Math.min(n - 1, i));
-      xh.setAttribute("x1", X(i)); xh.setAttribute("x2", X(i)); xh.setAttribute("visibility", "visible");
-      let rows = "";
-      let topY = H;
-      series.forEach((s, k) => {
-        const v = s.values[i];
-        if (v === null || v === undefined) { dots[k].setAttribute("visibility", "hidden"); return; }
-        dots[k].setAttribute("cx", X(i)); dots[k].setAttribute("cy", Y(v)); dots[k].setAttribute("visibility", "visible");
-        topY = Math.min(topY, Y(v));
-        rows += `<div class="tt-r"><span><i class="sw line" style="background:${s.color}"></i>${esc(s.name)}</span><b>${esc(fmt(v))}</b></div>`;
-      });
-      tip.innerHTML = `<div class="tt-h">${esc(period(x[i], { long: true }))}</div>${rows || '<div class="muted">Sin dato</div>'}`;
-      tip.classList.add("show");
-      placeTip(tip, container, X(i), topY - 30);
-    };
-    const hide = (ev) => {
-      if (ev && ev.pointerType && ev.pointerType !== "mouse") return;
-      tip.classList.remove("show"); xh.setAttribute("visibility", "hidden");
-      dots.forEach((d) => d.setAttribute("visibility", "hidden"));
-    };
-    hit.addEventListener("pointermove", move);
-    hit.addEventListener("pointerdown", move);
-    hit.addEventListener("pointerleave", hide);
-    container.__hide = () => hide();
+    const xh = el("line", { class: "xhair", y1: m.t - 4, y2: m.t + ih, x1: 0, x2: 0 }, svg);
+    const dots = series.map((s) => el("circle", { r: 4.5, fill: s.color, stroke: "var(--surface)", "stroke-width": 2, visibility: "hidden" }, svg));
+    const layer = el("g", {}, svg);
+    const initial = Math.max(...series.map((s) => lastIdx(s.values)));
+    scrubber(svg, {
+      W, H, x0: m.l, x1: m.l + iw, n, initial,
+      pos: X, pick: (px) => Math.round(((px - m.l) / iw) * (n - 1)),
+      onChange: (i) => {
+        const cx = X(i);
+        xh.setAttribute("x1", cx); xh.setAttribute("x2", cx);
+        layer.replaceChildren();
+        const parts = [{ text: period(x[i], xlong ? {} : { short: !/^\d{4}-\d{2}-\d{2}$/.test(x[i]) }), dim: series.length > 0 }];
+        series.forEach((s, k) => {
+          const v = s.values[i];
+          if (v === null || v === undefined) { dots[k].setAttribute("visibility", "hidden"); return; }
+          dots[k].setAttribute("cx", cx); dots[k].setAttribute("cy", Y(v)); dots[k].setAttribute("visibility", "visible");
+          parts.push({ text: fmt(v), dot: series.length > 1 ? s.color : null });
+        });
+        readout(layer, parts, cx, 2, { W, minX: 0 });
+      },
+    });
   });
 }
 
@@ -185,13 +193,13 @@ function barPath(x, w, y0, y1, r) {
   return `M${x},${y0}V${y1 - r}Q${x},${y1} ${x + r},${y1}H${x + w - r}Q${x + w},${y1} ${x + w},${y1 - r}V${y0}Z`;
 }
 
-/** Columnas (admite negativos). */
+/** Columnas (admite negativos) con deslizador. */
 export function columnChart(container, o) {
-  const { x, values, fmt = (v) => v, height = 180, name = "", pos = "var(--pos)", neg = "var(--neg)", labelLast = true, colorFn } = o;
+  const { x, values, fmt = (v) => v, height = 180, name = "", pos = "var(--pos)", neg = "var(--neg)", colorFn } = o;
   mount(container, (W) => {
     container.querySelector("svg")?.remove();
-    const H = height;
-    const m = { l: 40, r: 8, t: labelLast ? 18 : 10, b: 24 };
+    const H = height + SCRUB;
+    const m = { l: 40, r: 8, t: 28, b: 22 + SCRUB };
     const vals = values.filter((v) => v !== null && v !== undefined);
     const { lo, hi, ticks } = niceTicks(Math.min(0, ...vals), Math.max(0, ...vals));
     const iw = W - m.l - m.r, ih = H - m.t - m.b;
@@ -200,56 +208,38 @@ export function columnChart(container, o) {
     const bw = Math.max(1.5, Math.min(24, band - 2));
     const Y = (v) => m.t + ih - ((v - lo) / (hi - lo)) * ih;
     const X = (i) => m.l + i * band + (band - bw) / 2;
+    const C = (i) => X(i) + bw / 2;
     const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": o.label || name });
+    container.prepend(svg);
     const g = el("g", { class: "grid" }, svg);
     for (const t of ticks) {
       el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), class: t === 0 ? "zero" : "" }, g);
       const tx = el("text", { x: m.l - 6, y: Y(t) + 3.5, "text-anchor": "end" }, svg);
       tx.textContent = o.yfmt ? o.yfmt(t) : fmt(t);
     }
+    const xly = m.t + ih + 16;
     for (const i of xTickIdx(x, W < 380 ? 4 : 6)) {
-      const tx = el("text", { x: X(i) + bw / 2, y: H - 6, "text-anchor": i === 0 ? "start" : i === n - 1 ? "end" : "middle" }, svg);
+      const tx = el("text", { x: C(i), y: xly, "text-anchor": i === 0 ? "start" : i === n - 1 ? "end" : "middle" }, svg);
       tx.textContent = /^\d{4}-\d{2}$/.test(x[i]) && n > 30 ? x[i].slice(0, 4) : xLabel(x[i]);
     }
-    const bars = [];
-    values.forEach((v, i) => {
-      if (v === null || v === undefined) { bars.push(null); return; }
+    const bars = values.map((v, i) => {
+      if (v === null || v === undefined) return null;
       const color = colorFn ? colorFn(v, i) : v >= 0 ? pos : neg;
-      bars.push(el("path", { d: barPath(X(i), bw, Y(0), Y(v), 4), fill: color }, svg));
+      return el("path", { d: barPath(X(i), bw, Y(0), Y(v), 4), fill: color }, svg);
     });
-    if (labelLast) {
-      let i = values.length - 1;
-      while (i >= 0 && (values[i] === null || values[i] === undefined)) i--;
-      if (i >= 0) {
+    const layer = el("g", {}, svg);
+    scrubber(svg, {
+      W, H, x0: C(0), x1: C(n - 1), n, initial: lastIdx(values),
+      pos: C, pick: (px) => Math.floor((px - m.l) / band),
+      onChange: (i) => {
+        bars.forEach((b, k) => b && b.setAttribute("opacity", k === i ? 1 : 0.4));
+        layer.replaceChildren();
         const v = values[i];
-        const t = el("text", { x: X(i) + bw / 2, y: v >= 0 ? Y(v) - 5 : Y(v) + 13, "text-anchor": "end", class: "end-label" }, svg);
-        t.textContent = fmt(v);
-      }
-    }
-    const hit = el("rect", { x: m.l, y: 0, width: iw, height: H, fill: "transparent" }, svg);
-    container.prepend(svg);
-    const tip = tooltipEl(container);
-    let prev = -1;
-    const move = (ev) => {
-      const r = svg.getBoundingClientRect();
-      const i = Math.max(0, Math.min(n - 1, Math.floor((ev.clientX - r.left - m.l) / band)));
-      if (prev >= 0 && bars[prev]) bars[prev].setAttribute("opacity", 1);
-      bars.forEach((b, k) => b && b.setAttribute("opacity", k === i ? 1 : 0.55));
-      prev = i;
-      const v = values[i];
-      tip.innerHTML = `<div class="tt-h">${esc(period(x[i], { long: true }))}</div>` +
-        `<div class="tt-r"><span>${esc(name)}</span><b>${v === null || v === undefined ? "s/d" : esc(fmt(v))}</b></div>`;
-      tip.classList.add("show");
-      placeTip(tip, container, X(i) + bw / 2, v !== null && v !== undefined ? Math.min(Y(v), Y(0)) - 30 : 20);
-    };
-    const hide = (ev) => {
-      if (ev && ev.pointerType && ev.pointerType !== "mouse") return;
-      tip.classList.remove("show");
-      bars.forEach((b) => b && b.setAttribute("opacity", 1));
-    };
-    hit.addEventListener("pointermove", move);
-    hit.addEventListener("pointerdown", move);
-    hit.addEventListener("pointerleave", hide);
+        const top = v === null || v === undefined ? Y(0) : Math.min(Y(v), Y(0));
+        el("line", { class: "xhair", x1: C(i), x2: C(i), y1: 22, y2: top - 3 }, layer);
+        readout(layer, [{ text: v === null || v === undefined ? "s/d" : fmt(v) }, { text: period(x[i], { short: true }), dim: true }], C(i), 2, { W, minX: 0 });
+      },
+    });
   });
 }
 
