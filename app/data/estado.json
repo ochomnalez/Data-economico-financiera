@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-05T23:42:52+00:00",
+ "actualizado": "2026-11-05T23:55:05+00:00",
  "periodos": {
   "ipc": "2026-09",
   "canastas": "2026-09",
@@ -17,6 +17,15 @@
   "poblacion": "2040"
  },
  "ultimos": {
+  "ipc": {
+   "id": "ipc",
+   "periodo": "2026-09",
+   "titulo": "Inflación de septiembre 2026",
+   "texto": "1,9% mensual · 33,4% interanual. Respecto del mes anterior (1,7%) subió. La núcleo fue 1,7%.",
+   "valor": 1.9,
+   "unidad": "%",
+   "ruta": "#/precios"
+  },
   "canastas": {
    "id": "canastas",
    "periodo": "2026-09",
@@ -34,6 +43,15 @@
    "valor": 3.2,
    "unidad": "%",
    "ruta": "#/mas/mayoristas"
+  },
+  "icc": {
+   "id": "icc",
+   "periodo": "2026-09",
+   "titulo": "Costo de la construcción de septiembre 2026",
+   "texto": "1,5% mensual · 31,3% interanual (GBA).",
+   "valor": 1.5,
+   "unidad": "%",
+   "ruta": "#/mas/construccion"
   },
   "obra_publica": {
    "id": "obra_publica",
@@ -116,6 +134,16 @@
    "valor": 2976.5,
    "unidad": "US$ M",
    "ruta": "#/mas/comercio"
+  },
+  "poblacion": {
+   "id": "poblacion",
+   "periodo": "2040",
+   "titulo": "Proyecciones de población",
+   "texto": "Argentina tiene 46,5 millones de habitantes en 2026.",
+   "valor": 46466688,
+   "unidad": "hab.",
+   "ruta": "#/mas/poblacion",
+   "silencioso": true
   }
  },
  "tablas": {
@@ -218,9 +246,5 @@
    "periodo": "2040"
   }
  },
- "errores": {
-  "ipc": "Remote end closed connection without response",
-  "icc": "Remote end closed connection without response",
-  "poblacion": "503 en estimaciones_poblacion_departamento_2022_2035: {\"code\":\"PGRST000\",\"details\":\"could not translate host name \\\"db\\\" to address: Try again\\n\",\"hint\":null,\"message\":\"Database connection error.\"}"
- }
+ "errores": {}
 }
