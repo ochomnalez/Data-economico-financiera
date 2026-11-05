@@ -54,7 +54,12 @@ jobs:
             echo "Sin cambios en los datos."
           else
             git commit -m "Datos actualizados $(date -u +'%Y-%m-%d %H:%M') UTC"
-            git push
+            # Si mientras corría se subió otro cambio a main, se integra antes de subir.
+            for intento in 1 2 3; do
+              git pull --rebase -X theirs -q origin main && git push && exit 0
+              echo "Reintento $intento…"; sleep $((intento * 5))
+            done
+            exit 1
           fi
 
       - name: Notificar al teléfono
