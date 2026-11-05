@@ -116,7 +116,17 @@ window.addEventListener("scroll", () => { if (!ticking) { ticking = true; reques
 go();
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js").catch((e) => console.warn("SW", e));
+  // Busca versión nueva al abrir y cada vez que la app vuelve a primer plano;
+  // si hay una, recarga una sola vez para mostrarla.
+  const hadController = !!navigator.serviceWorker.controller;
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (hadController && !reloaded) { reloaded = true; location.reload(); }
+  });
+  navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then((reg) => {
+    reg.update().catch(() => {});
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) reg.update().catch(() => {}); });
+  }).catch((e) => console.warn("SW", e));
   navigator.serviceWorker.addEventListener("message", (e) => {
     if (e.data?.type === "navigate" && e.data.url) location.hash = e.data.url.replace(/^.*#/, "#");
   });
