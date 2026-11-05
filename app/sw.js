@@ -1,5 +1,5 @@
 // Service worker: app offline + notificaciones push.
-const VERSION = "pe-v3";
+const VERSION = "pe-v4";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/main.js", "js/ui.js", "js/charts.js", "js/fmt.js", "js/icons.js", "js/push.js",
@@ -8,32 +8,34 @@ const SHELL = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // cache: "reload" evita guardar copias viejas que haya dejado el caché HTTP.
+  e.waitUntil(caches.open(VERSION)
+    .then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" }))))
+    .then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
-// Datos: primero la red (siempre lo último), si no hay conexión, lo guardado.
-// App: primero lo guardado, y se actualiza en segundo plano.
+// Todo (app y datos): primero la red, revalidando, para mostrar siempre lo último.
+// Sin conexión (o si la red tarda más de 4 s), lo guardado.
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET" || url.origin !== location.origin) return;
-  if (url.pathname.includes("/data/")) {
-    e.respondWith(fetch(e.request).then((r) => {
-      const copy = r.clone();
-      caches.open(VERSION).then((c) => c.put(e.request, copy));
+  e.respondWith((async () => {
+    const cache = await caches.open(VERSION);
+    const net = fetch(e.request, { cache: "no-cache" }).then((r) => {
+      if (r.ok) cache.put(e.request, r.clone());
       return r;
-    }).catch(() => caches.match(e.request, { ignoreSearch: true })));
-    return;
-  }
-  e.respondWith(caches.match(e.request, { ignoreSearch: true }).then((hit) => {
-    const net = fetch(e.request).then((r) => {
-      if (r.ok) { const copy = r.clone(); caches.open(VERSION).then((c) => c.put(e.request, copy)); }
-      return r;
-    }).catch(() => hit);
+    });
+    const timeout = new Promise((res) => setTimeout(res, 4000));
+    try {
+      const r = await Promise.race([net, timeout]);
+      if (r) return r;
+    } catch { /* sin conexión */ }
+    const hit = await cache.match(e.request, { ignoreSearch: true });
     return hit || net;
-  }));
+  })());
 });
 
 self.addEventListener("push", (e) => {
