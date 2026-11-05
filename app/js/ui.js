@@ -2,6 +2,7 @@
 import { columnChart, dataTable, legend, lineChart } from "./charts.js";
 import { esc, period } from "./fmt.js";
 import { I } from "./icons.js";
+import { G } from "./glosario.js";
 
 // ── Datos ──────────────────────────────────────────
 const cache = new Map();
@@ -70,18 +71,60 @@ export function tone(v, { good = "up", text }) {
   return `<span class="delta ${cls}">${ico}${esc(text)}</span>`;
 }
 
-export function info(text) {
-  const k = id("i");
-  onMount(() => {
-    const d = document.getElementById(k);
-    d?.addEventListener("toggle", () => {
-      const box = d.closest(".card, .section")?.querySelector(`[data-info="${k}"]`);
-      if (box) box.hidden = !d.open;
-    });
-  });
-  return { btn: `<details class="info" id="${k}"><summary aria-label="¿Qué es esto?">?</summary></details>`,
-    box: `<div class="info-box" data-info="${k}" hidden>${text}</div>` };
+// ── "Qué es": botoncito + panel inferior con definición y fórmula ──
+const SHEETS = new Map();
+/** Devuelve el botón chico; al tocarlo abre el panel con el concepto del glosario
+ *  (concept) y/o la nota propia de la tarjeta (text). */
+export function info(text, { concept, title } = {}) {
+  if (!text && !(concept && G[concept])) return { btn: "", box: "" };
+  const k = id("q");
+  SHEETS.set(k, { text, concept, title });
+  return { btn: `<button type="button" class="what" data-sheet="${k}" aria-label="Qué es y cómo se calcula">${I.info}<span>Qué es</span></button>`, box: "" };
 }
+
+function sheetHTML({ text, concept, title }) {
+  const g = G[concept] || {};
+  const t = g.titulo || title || "Qué es";
+  return `<div class="sheet-handle"></div>
+    <div class="sheet-head"><h2>${esc(t)}</h2><button type="button" class="sheet-x" aria-label="Cerrar">✕</button></div>
+    <div class="sheet-body">
+      ${g.que ? `<h4>Qué es</h4><p>${g.que}</p>` : ""}
+      ${g.formula ? `<h4>Cómo se calcula</h4><div class="formula">${g.formula.map((f) => `<div>${esc(f)}</div>`).join("")}</div>` : ""}
+      ${g.lectura ? `<h4>Cómo leerlo</h4><p>${g.lectura}</p>` : ""}
+      ${text ? `<h4>${g.que ? "En este gráfico" : "Qué muestra"}</h4><p>${text}</p>` : ""}
+      <p class="small muted" style="margin-top:16px">Fórmulas simplificadas para entender la idea general. La metodología completa está en indec.gob.ar.</p>
+    </div>`;
+}
+
+let sheetEl = null;
+function openSheet(data) {
+  if (!sheetEl) {
+    sheetEl = document.createElement("div");
+    sheetEl.className = "sheet-wrap";
+    sheetEl.innerHTML = `<div class="sheet-bg"></div><div class="sheet" role="dialog" aria-modal="true"></div>`;
+    document.body.appendChild(sheetEl);
+    sheetEl.addEventListener("click", (e) => {
+      if (e.target.classList.contains("sheet-bg") || e.target.closest(".sheet-x")) closeSheet();
+    });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSheet(); });
+    window.addEventListener("hashchange", closeSheet);
+  }
+  sheetEl.querySelector(".sheet").innerHTML = sheetHTML(data);
+  sheetEl.querySelector(".sheet").scrollTop = 0;
+  document.documentElement.classList.add("sheet-open");
+  requestAnimationFrame(() => sheetEl.classList.add("open"));
+}
+function closeSheet() {
+  if (!sheetEl) return;
+  sheetEl.classList.remove("open");
+  document.documentElement.classList.remove("sheet-open");
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-sheet]");
+  if (!b) return;
+  const d = SHEETS.get(b.dataset.sheet);
+  if (d) openSheet(d);
+});
 
 export function section(title, body, { link, sub, idAttr } = {}) {
   return `<section class="section" ${idAttr ? `id="${idAttr}"` : ""}><div class="section-head"><h2>${esc(title)}</h2>${link ? `<a class="link" href="${link[1]}">${esc(link[0])}</a>` : ""}</div>
@@ -117,11 +160,11 @@ function seg(name, opts, on) {
  * Tarjeta con gráfico, selector de modo/rango, leyenda y tabla de datos.
  * render(mode) → {type:'line'|'col', x, series|values, fmt, ...}
  */
-export function chartCard({ title, sub = "", modes, ranges = RANGES_M, range = 24, render, source = "INDEC", infoText, height }) {
+export function chartCard({ title, sub = "", modes, ranges = RANGES_M, range = 24, render, source = "INDEC", infoText, height, concept }) {
   const k = id("c");
   let mode = modes ? modes[0][1] : null;
   let rng = ranges ? range : 0;
-  const inf = infoText ? info(infoText) : null;
+  const inf = info(infoText, { concept, title });
   onMount(() => {
     const root = document.getElementById(k);
     if (!root) return;
@@ -168,8 +211,8 @@ export function chartCard({ title, sub = "", modes, ranges = RANGES_M, range = 2
   </div>`;
 }
 
-export function card(inner, { title, sub, infoText, source } = {}) {
-  const inf = infoText ? info(infoText) : null;
+export function card(inner, { title, sub, infoText, source, concept } = {}) {
+  const inf = info(infoText, { concept, title });
   return `<div class="card">${title ? `<div class="card-head"><div><h3>${esc(title)}</h3>${sub ? `<div class="card-sub">${sub}</div>` : ""}</div>${inf ? inf.btn : ""}</div>` : ""}
   ${inf ? inf.box : ""}${inner}${source ? `<div class="source">Fuente: ${source}</div>` : ""}</div>`;
 }

@@ -20,11 +20,11 @@ export async function render() {
     { label: "Inflación del mes", value: n(ipcVm[P[L]]), unit: "%", foot: period(P[L]) },
     { label: "Salario real", value: n(reg.real_via[L], 1, { sign: true }), unit: "%", foot: "interanual" },
   ]) + `<div style="margin-top:10px">${tone(reg.real_vm[L], { good: "up", text: reg.real_vm[L] >= 0 ? `En ${period(P[L])} los salarios registrados le ganaron a la inflación` : `En ${period(P[L])} los salarios registrados perdieron con la inflación` })}</div>`,
-  { title: `Salarios · ${period(P[L], { long: true })}`, sub: "Índice de salarios",
+  { concept: "salarios", title: `Salarios · ${period(P[L], { long: true })}`, sub: "Índice de salarios",
     infoText: "El <b>salario real</b> compara el aumento de los sueldos con la inflación: si es positivo, el sueldo compra más que antes. Se calcula dividiendo el índice de salarios por el IPC. " + (sal.nota || "") });
 
   const real = chartCard({
-    title: "Poder de compra del salario", sub: `Salario real, índice ${period(sal.base_real)} = 100`, range: 36,
+    concept: "salario_real", title: "Poder de compra del salario", sub: `Salario real, índice ${period(sal.base_real)} = 100`, range: 36,
     infoText: "Por encima de 100: el salario compra más que en noviembre de 2023. Por debajo: compra menos. El salario no registrado (informal) es muy volátil y se publica con 5 meses de rezago; por eso se muestra aparte.",
     modes: [["Registrados", "r"], ["+ No registrado", "t"]],
     render: (m) => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [
@@ -33,7 +33,7 @@ export async function render() {
       ...(m === "t" ? [{ name: "No registrado", values: nr.real_idx, color: "var(--s3)" }] : [])] }),
   });
   const vsInf = chartCard({
-    title: "Salarios vs. inflación", sub: "Variación interanual", range: 36,
+    concept: "salario_real", title: "Salarios vs. inflación", sub: "Variación interanual", range: 36,
     modes: [["Registrados", "Total registrado"], ["Privados", "Sector privado registrado"], ["Públicos", "Sector público"], ["No reg.", "Total no registrado"]],
     render: (m) => ({ type: "line", x: P, fmt: pf, series: [
       { name: S[m].name, values: S[m].via, color: "var(--s7)" },
@@ -42,7 +42,7 @@ export async function render() {
   const tblRows = ["Nivel general", "Total registrado", "Sector privado registrado", "Sector público", "Subsector público nacional", "Subsector público provincial", "Total no registrado"]
     .map((k) => S[k]).map((s) => { const l = lastOf(s.vm); return `<tr class="${s.name === "Nivel general" ? "hl" : ""}"><td>${s.name}</td><td class="r">${pf(s.vm[l.i])}</td><td class="r">${pf(s.via[l.i])}</td><td class="r">${pfs(s.real_via[l.i])}</td></tr>`; }).join("");
   const tbl = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Sector</th><th class="r">Mensual</th><th class="r">Interanual</th><th class="r">Real i.a.</th></tr></thead><tbody>${tblRows}</tbody></table></div>`,
-    { title: "Por sector", sub: period(P[L], { long: true }), source: "INDEC. " + (sal.nota || "") });
+    { concept: "salarios", title: "Por sector", sub: period(P[L], { long: true }), source: "INDEC. " + (sal.nota || "") });
 
   // ── Trabajo ──
   const T = trab.p, TL = T.length - 1;
@@ -50,16 +50,16 @@ export async function render() {
     { label: "Desocupación", value: n(trab.desocupacion[TL]), unit: "%", foot: `hace un año ${pct(trab.desocupacion[TL - 4])}` },
     { label: "Empleo", value: n(trab.empleo[TL]), unit: "%", foot: `actividad ${pct(trab.actividad[TL])}` },
     { label: "Informalidad", value: trab.empleo_informal[TL] !== null ? n(trab.empleo_informal[TL]) : "s/d", unit: "%", foot: "de la población" },
-  ]), { title: `Mercado de trabajo · ${period(T[TL], { long: true })}`, sub: "Encuesta Permanente de Hogares, 31 aglomerados urbanos",
+  ]), { concept: "trabajo", title: `Mercado de trabajo · ${period(T[TL], { long: true })}`, sub: "Encuesta Permanente de Hogares, 31 aglomerados urbanos",
     infoText: "<b>Actividad</b>: % de la población que trabaja o busca trabajo. <b>Empleo</b>: % que trabaja. <b>Desocupación</b>: % de los activos que busca y no consigue. <b>Subocupación</b>: trabaja menos de 35 horas y quiere trabajar más. Las tasas de empleo formal e informal están expresadas sobre el total de la población." });
   const trabChart = chartCard({
-    title: "Desocupación y subocupación", ranges: RANGES_Q, range: 20,
+    concept: "desocupacion", title: "Desocupación y subocupación", ranges: RANGES_Q, range: 20,
     render: () => ({ type: "line", x: T, fmt: pf, series: [
       { name: "Desocupación", values: trab.desocupacion, color: "var(--s2)" },
       { name: "Subocupación", values: trab.subocupacion, color: "var(--s4)" }] }),
   });
   const trabChart2 = chartCard({
-    title: "Actividad y empleo", ranges: RANGES_Q, range: 20,
+    concept: "actividad_empleo", title: "Actividad y empleo", ranges: RANGES_Q, range: 20,
     render: () => ({ type: "line", x: T, fmt: pf, series: [
       { name: "Tasa de actividad", values: trab.actividad, color: "var(--s1)" },
       { name: "Tasa de empleo", values: trab.empleo, color: "var(--s3)" }] }),
@@ -71,10 +71,10 @@ export async function render() {
     { label: "Personas pobres", value: n(pob.pobreza_personas[QL]), unit: "%", foot: `antes ${pct(pob.pobreza_personas[QL - 1])}` },
     { label: "Hogares pobres", value: n(pob.pobreza_hogares[QL]), unit: "%", foot: `antes ${pct(pob.pobreza_hogares[QL - 1])}` },
     { label: "Indigencia", value: n(pob.indigencia_personas[QL]), unit: "%", foot: "de las personas" },
-  ]), { title: `Pobreza · ${period(Q[QL], { long: true })}`, sub: "Encuesta Permanente de Hogares, 31 aglomerados urbanos",
+  ]), { concept: "pobreza", title: `Pobreza · ${period(Q[QL], { long: true })}`, sub: "Encuesta Permanente de Hogares, 31 aglomerados urbanos",
     infoText: "Una persona es <b>pobre</b> si el ingreso de su hogar no alcanza para comprar la Canasta Básica Total, e <b>indigente</b> si no alcanza ni para la Canasta Básica Alimentaria. Se mide por semestre." });
   const pobChart = chartCard({
-    title: "Evolución", sub: "% de personas", ranges: RANGES_S, range: 0,
+    concept: "pobreza", title: "Evolución", sub: "% de personas", ranges: RANGES_S, range: 0,
     render: () => ({ type: "line", x: Q, fmt: pf, series: [
       { name: "Pobreza", values: pob.pobreza_personas, color: "var(--s8)" },
       { name: "Indigencia", values: pob.indigencia_personas, color: "var(--s7)" }] }),

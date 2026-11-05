@@ -56,11 +56,11 @@ export const comercio = {
       { label: "Importaciones", value: usdM(c.impo[L]), foot: `${pfs((c.impo[L] / c.impo[L - 12] - 1) * 100)} interanual` },
       { label: c.saldo[L] >= 0 ? "Superávit" : "Déficit", value: usdM(Math.abs(c.saldo[L])), foot: "saldo del mes" },
     ]) + `<p class="small muted" style="margin:12px 0 0">Últimos 12 meses: exportaciones ${bn(e12)} (${pfs((e12 / e12p - 1) * 100)}), importaciones ${bn(i12)} (${pfs((i12 / i12p - 1) * 100)}), saldo ${bn(e12 - i12)}.</p>`,
-    { title: `Intercambio comercial · ${period(P[L], { long: true })}`, sub: "Millones de dólares",
+    { concept: "comex", title: `Intercambio comercial · ${period(P[L], { long: true })}`, sub: "Millones de dólares",
       infoText: "Exportaciones valuadas FOB (en el puerto argentino) e importaciones CIF (incluyen flete y seguro). Los totales surgen de sumar las aperturas que publica la API; pueden diferir levemente de los informes oficiales por redondeo y por datos confidenciales. <b>Balanza de pagos</b>: el INDEC todavía no la publica en su API." });
-    const saldo = chartCard({ title: "Balanza comercial", sub: "Exportaciones menos importaciones, millones de US$", range: 24,
+    const saldo = chartCard({ concept: "balanza", title: "Balanza comercial", sub: "Exportaciones menos importaciones, millones de US$", range: 24,
       render: () => ({ type: "col", x: P, values: c.saldo, name: "Saldo", fmt: (v) => n(v, 0) }) });
-    const flujos = chartCard({ title: "Exportaciones e importaciones", sub: "Millones de US$ por mes", range: 60,
+    const flujos = chartCard({ concept: "comex", title: "Exportaciones e importaciones", sub: "Millones de US$ por mes", range: 60,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 0), series: [
         { name: "Exportaciones", values: c.expo, color: "var(--s1)" }, { name: "Importaciones", values: c.impo, color: "var(--s2)" }] }) });
     const share = (rows) => {
@@ -69,11 +69,11 @@ export const comercio = {
     };
     const comp = card(switcher({ options: [["Exportaciones", "e"], ["Importaciones", "i"]],
       render: (m) => share(m === "e" ? c.rubros : c.usos) }),
-    { title: "¿Qué vendemos y qué compramos?", sub: `Participación en ${period(P[L], { long: true })}`, source: "INDEC" });
+    { concept: "composicion", title: "¿Qué vendemos y qué compramos?", sub: `Participación en ${period(P[L], { long: true })}`, source: "INDEC" });
     const soc = card(switcher({ options: [["Destinos de expo.", "e"], ["Orígenes de impo.", "i"]],
       render: (m) => bars((m === "e" ? c.socios_expo : c.socios_impo).slice(0, 10).map((s) => ({ label: s.name, value: s.v })), { fmt: (v) => usdM(v), color: "var(--s7)" }) }),
-    { title: "Principales socios", sub: `Acumulado ${period(c.socios_desde)} – ${period(c.socios_hasta)}`, source: "INDEC" });
-    const rub = chartCard({ title: "Exportaciones por gran rubro", sub: "Millones de US$", range: 36,
+    { concept: "socios", title: "Principales socios", sub: `Acumulado ${period(c.socios_desde)} – ${period(c.socios_hasta)}`, source: "INDEC" });
+    const rub = chartCard({ concept: "composicion", title: "Exportaciones por gran rubro", sub: "Millones de US$", range: 36,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 0), series: c.rubros.map((r, k) => ({ name: r.name.replace(/ \(.*\)/, "").replace("Manufacturas de origen", "Manuf."), values: r.v, color: `var(--s${k + 1})` })) }) });
     return section("Balanza", head + saldo + flujos) + section("Composición", comp + rub) + section("Socios comerciales", soc) +
       `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
@@ -91,15 +91,15 @@ export const mayoristas = {
       { label: "IPIM · mayoristas", value: n(m.IPIM.vm[L]), unit: "%", foot: `${pf(m.IPIM.via[L])} interanual` },
       { label: "IPIB · sin impuestos", value: n(m.IPIB.vm[L]), unit: "%", foot: `${pf(m.IPIB.via[L])} interanual` },
       { label: "IPP · productor", value: n(m.IPP.vm[L]), unit: "%", foot: `${pf(m.IPP.via[L])} interanual` },
-    ]), { title: `Sistema de precios mayoristas · ${period(P[L], { long: true })}`, sub: "Variación mensual",
+    ]), { concept: "mayoristas", title: `Sistema de precios mayoristas · ${period(P[L], { long: true })}`, sub: "Variación mensual",
       infoText: "<b>IPIM</b>: precios mayoristas internos (incluye impuestos e importados). <b>IPIB</b>: igual pero sin impuestos. <b>IPP</b>: precios básicos del productor, solo producción nacional. Los precios mayoristas suelen trasladarse al consumidor con algunos meses de demora." });
-    const vs = chartCard({ title: "Mayoristas vs. consumidor", sub: "Variación mensual", range: 24,
+    const vs = chartCard({ concept: "mayoristas_vs_ipc", title: "Mayoristas vs. consumidor", sub: "Variación mensual", range: 24,
       render: () => ({ type: "line", x: P, fmt: pf, series: [
         { name: "IPIM · Precios mayoristas", values: m.IPIM.vm, color: "var(--s2)" },
         { name: "IPC · Precios al consumidor", values: P.map((p) => ipcVm[p] ?? null), color: "var(--s1)" }] }) });
     const comps = card(switcher({ options: [["IPIM · mayoristas", "IPIM"], ["IPIB · sin imp.", "IPIB"], ["IPP · productor", "IPP"]],
       render: (k) => bars(m[k].componentes.map((c) => ({ label: c.name, value: c.vm[L] })).sort((a, b) => b.value - a.value), { fmt: pf, color: "var(--s2)" }) }),
-    { title: "Por componente", sub: `Variación mensual · ${period(P[L])}`, source: "INDEC, SIPM" });
+    { concept: "mayoristas", title: "Por componente", sub: `Variación mensual · ${period(P[L])}`, source: "INDEC, SIPM" });
     return section("Precios mayoristas", head + vs + comps) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
   },
 };
@@ -115,12 +115,12 @@ export const construccion = {
       { label: "Mensual", value: n(d.general.vm[L]), unit: "%", foot: `antes ${pf(d.general.vm[L - 1])}` },
       { label: "Interanual", value: n(d.general.via[L]), unit: "%" },
       { label: "Mano de obra", value: n(caps["Mano de obra"]?.vm[L]), unit: "%", foot: "mensual" },
-    ]), { title: `Índice del costo de la construcción · ${period(P[L], { long: true })}`, sub: "Vivienda tipo en el Gran Buenos Aires",
+    ]), { concept: "icc", title: `Índice del costo de la construcción · ${period(P[L], { long: true })}`, sub: "Vivienda tipo en el Gran Buenos Aires",
       infoText: "El ICC mide cuánto cuesta construir una vivienda modelo en el GBA. Se divide en tres capítulos: materiales, mano de obra y gastos generales." });
-    const chart = chartCard({ title: "Por capítulo", sub: "Variación interanual", range: 36,
+    const chart = chartCard({ concept: "icc", title: "Por capítulo", sub: "Variación interanual", range: 36,
       render: () => ({ type: "line", x: P, fmt: pf, series: d.capitulos.map((c, k) => ({ name: c.name, values: c.via, color: `var(--s${k + 1})` })) }) });
     const items = card(bars(d.items.map((i) => ({ label: i.name, value: i.via })), { fmt: pf, color: "var(--s4)" }),
-      { title: "Por ítem de obra", sub: `Variación interanual · ${period(P[L])}`, source: "INDEC" });
+      { concept: "icc", title: "Por ítem de obra", sub: `Variación interanual · ${period(P[L])}`, source: "INDEC" });
     return section("Construcción", head + chart + items) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
   },
 };
@@ -141,7 +141,7 @@ export const obraPublica = {
     });
     return section("Redeterminación de precios", card(`<input class="search" id="${sid}" type="search" placeholder="Buscar insumo…">
       <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Inciso</th><th class="r">Mensual</th><th class="r">Interanual</th></tr></thead><tbody id="${sid}-b">${rows("")}</tbody></table></div>`,
-    { title: `Índices del Decreto 1295/2002 · ${period(P[L], { long: true })}`,
+    { concept: "obra_publica", title: `Índices del Decreto 1295/2002 · ${period(P[L], { long: true })}`,
       infoText: "Son los índices que se usan para actualizar los precios de los contratos de obra pública. Cada inciso (a, b, c…) corresponde a un insumo del decreto; la fuente es el ICC o el índice de precios mayoristas básicos (IPIB).", source: "INDEC" }),
     { sub: "Herramienta técnica para empresas constructoras y organismos públicos." }) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
   },
@@ -158,13 +158,13 @@ export const industria = {
       { label: "Mensual (sin estacionalidad)", value: n(g.vm[L], 1, { sign: true }), unit: "%" },
       { label: "Interanual", value: n(g.via[L], 1, { sign: true }), unit: "%" },
       { label: "Acumulado del año", value: n(g.acum[L], 1, { sign: true }), unit: "%", foot: "vs. mismo período" },
-    ]), { title: `Producción industrial · ${period(P[L], { long: true })}`, sub: "IPI manufacturero",
+    ]), { concept: "ipi_manuf", title: `Producción industrial · ${period(P[L], { long: true })}`, sub: "IPI manufacturero",
       infoText: "El índice de producción industrial manufacturero mide el volumen físico que producen las fábricas. Es uno de los primeros datos que muestra cómo viene la actividad." });
-    const nivel = chartCard({ title: "Nivel de producción", sub: "Serie desestacionalizada, base 2004 = 100", range: 60,
+    const nivel = chartCard({ concept: "ipi_manuf", title: "Nivel de producción", sub: "Serie desestacionalizada, base 2004 = 100", range: 60,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [{ name: "Producción industrial (IPI manufacturero)", values: g.desest, color: "var(--s1)", area: true }] }) });
-    const vars = chartCard({ title: "Variación interanual", range: 24, render: () => ({ type: "col", x: P, values: g.via, name: "Interanual", fmt: pfs }) });
+    const vars = chartCard({ concept: "variaciones", title: "Variación interanual", range: 24, render: () => ({ type: "col", x: P, values: g.via, name: "Interanual", fmt: pfs }) });
     const divs = card(bars(d.divisiones.map((x) => ({ label: x.name, value: x.via[L] })).sort((a, b) => b.value - a.value), { fmt: pfs, color: "var(--s3)" }),
-      { title: "Por rama", sub: `Variación interanual · ${period(P[L])}`, source: "INDEC" });
+      { concept: "ipi_manuf", title: "Por rama", sub: `Variación interanual · ${period(P[L])}`, source: "INDEC" });
     return section("Industria manufacturera", head + nivel + vars) + section("Ramas industriales", divs) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
   },
 };
@@ -181,19 +181,19 @@ export const mineria = {
       { label: "Mensual (sin estacionalidad)", value: n(g.vm[L], 1, { sign: true }), unit: "%" },
       { label: "Interanual", value: g.via.length ? n(g.via[L], 1, { sign: true }) : "s/d", unit: "%" },
       { label: "Petróleo", value: n(ia("Petróleo crudo"), 1, { sign: true }), unit: "%", foot: "producción i.a." },
-    ]), { title: `Producción minera · ${period(P[L], { long: true })}`, sub: "Índice de producción industrial minero (IPI minero)",
+    ]), { concept: "ipi_minero", title: `Producción minera · ${period(P[L], { long: true })}`, sub: "Índice de producción industrial minero (IPI minero)",
       infoText: "Mide la producción de petróleo, gas, minerales metalíferos (oro, plata, litio, cobre), y rocas y minerales para construcción. El crecimiento de Vaca Muerta se ve en el petróleo y gas <b>no convencional</b>." });
-    const lvl = chartCard({ title: "Nivel de producción", sub: "Serie desestacionalizada, base 2016 = 100", range: 60,
+    const lvl = chartCard({ concept: "ipi_minero", title: "Nivel de producción", sub: "Serie desestacionalizada, base 2016 = 100", range: 60,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [{ name: "Producción minera (IPI minero)", values: g.desest, color: "var(--s6)", area: true }] }) });
-    const oil = chartCard({ title: "Petróleo crudo", sub: "Miles de m³ por mes", range: 60,
+    const oil = chartCard({ concept: "petroleo", title: "Petróleo crudo", sub: "Miles de m³ por mes", range: 60,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 0), series: [
         { name: "No convencional", values: prod["Petróleo crudo no convencional"]?.v || [], color: "var(--s1)" },
         { name: "Convencional", values: prod["Petróleo crudo convencional"]?.v || [], color: "var(--s2)" }] }) });
-    const gas = chartCard({ title: "Gas natural", sub: "Millones de m³ por mes", range: 60,
+    const gas = chartCard({ concept: "petroleo", title: "Gas natural", sub: "Millones de m³ por mes", range: 60,
       render: () => ({ type: "line", x: P, fmt: (v) => n(v, 0), series: [
         { name: "No convencional", values: prod["Gas natural no convencional"]?.v || [], color: "var(--s1)" },
         { name: "Convencional", values: prod["Gas natural convencional"]?.v || [], color: "var(--s2)" }] }) });
-    const lit = chartCard({ title: "Carbonato de litio", sub: "Toneladas por mes", range: 60,
+    const lit = chartCard({ concept: "litio", title: "Carbonato de litio", sub: "Toneladas por mes", range: 60,
       render: () => ({ type: "col", x: P, values: prod["Carbonato de litio"]?.v || [], name: "Carbonato de litio", fmt: (v) => n(v, 0), pos: "var(--s3)" }) });
     return section("Minería", head + lvl) + section("Energía y litio", oil + gas + lit) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
   },
@@ -207,9 +207,9 @@ export const crianza = {
     const P = d.p, L = P.length - 1;
     const rows = d.tramos.map((t) => `<tr><td>${esc(t.name)}</td><td class="r">${ars(t.bys[L])}</td><td class="r">${ars(t.cuid[L])}</td><td class="r"><b>${ars(t.tot[L])}</b></td></tr>`).join("");
     const head = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Edad</th><th class="r">Bienes y servicios</th><th class="r">Cuidado</th><th class="r">Total</th></tr></thead><tbody>${rows}</tbody></table></div>`,
-      { title: `Costo mensual de criar a un chico · ${period(P[L], { long: true })}`, sub: "Pesos por mes",
+      { concept: "crianza", title: `Costo mensual de criar a un chico · ${period(P[L], { long: true })}`, sub: "Pesos por mes",
         infoText: "La canasta de crianza estima cuánto cuesta criar a un chico: los <b>bienes y servicios</b> que necesita (alimentos, ropa, salud, educación) más el <b>tiempo de cuidado</b>, valorizado según el salario de una trabajadora de casas particulares.", source: "INDEC" });
-    const ch = chartCard({ title: "Evolución del costo total", sub: "Pesos por mes", range: 24,
+    const ch = chartCard({ concept: "crianza", title: "Evolución del costo total", sub: "Pesos por mes", range: 24,
       render: () => ({ type: "line", x: P, fmt: (v) => ars(v, { short: true }), yfmt: (v) => n(v / 1000, 0) + "k",
         series: d.tramos.map((t, k) => ({ name: t.name, values: t.tot, color: `var(--s${k + 1})` })) }) });
     return section("Canasta de crianza", head + ch) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
@@ -226,18 +226,18 @@ export const poblacion = {
       { label: `Habitantes ${y0}`, value: n(d.total[i0] / 1e6, 2), unit: " M" },
       { label: `Proyección ${d.years[last]}`, value: n(d.total[last] / 1e6, 2), unit: " M" },
       { label: "Crecimiento anual", value: n(((d.total[i0] / d.total[i0 - 1]) - 1) * 100, 2), unit: "%" },
-    ]), { title: "Población de la Argentina", sub: "Estimaciones y proyecciones en base al Censo 2022",
+    ]), { concept: "poblacion", title: "Población de la Argentina", sub: "Estimaciones y proyecciones en base al Censo 2022",
       infoText: "Población estimada al 1.º de julio de cada año. A partir del Censo 2022, el INDEC proyecta cómo va a evolucionar la población por sexo, edad y jurisdicción." });
-    const tot = chartCard({ title: "Población total", sub: "Millones de habitantes", ranges: null,
+    const tot = chartCard({ concept: "poblacion", title: "Población total", sub: "Millones de habitantes", ranges: null,
       render: () => ({ type: "line", x: d.years.map(String), fmt: (v) => n(v / 1e6, 2) + " M", yfmt: (v) => n(v / 1e6, 1),
         series: [{ name: "Población", values: d.total, color: "var(--s1)", area: true }] }) });
     const pyr = card(switcher({ options: [[String(y0), "a"], [String(d.years[last]), "b"]],
       render: (k) => pyramid(k === "a" ? d.piramide : d.piramide_2040, { fmt: big }) }),
-    { title: "Pirámide de población", sub: "Por sexo y grupo de edad", source: "INDEC",
+    { concept: "piramide", title: "Pirámide de población", sub: "Por sexo y grupo de edad", source: "INDEC",
       infoText: "La base más angosta muestra que nacen menos chicos que antes: la población envejece." });
     const prov = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Provincia</th><th class="r">${y0}</th><th class="r">Var. a ${d.years[last]}</th></tr></thead><tbody>
       ${d.provincias.map((p) => `<tr><td>${esc(p.name)}</td><td class="r">${big(p.pob)}</td><td class="r">${pfs(p.var)}</td></tr>`).join("")}</tbody></table></div>`,
-    { title: "Por provincia", source: "INDEC" });
+    { concept: "poblacion", title: "Por provincia", source: "INDEC" });
     const sid = "dep-s";
     const depRows = (q) => d.departamentos.filter((r) => !q || (r[0] + " " + r[1]).toLowerCase().includes(q)).slice(0, 40)
       .map((r) => `<tr><td>${esc(r[0])}<div class="small muted">${esc(r[1])}</div></td><td class="r">${n(r[2], 0)}</td><td class="r">${n(r[3], 0)}</td></tr>`).join("");
@@ -247,7 +247,7 @@ export const poblacion = {
     });
     const dep = card(`<input class="search" id="${sid}" type="search" placeholder="Buscar departamento o partido…">
       <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Departamento</th><th class="r">${y0}</th><th class="r">${d.dep_anio_max}</th></tr></thead><tbody id="${sid}-b">${depRows("")}</tbody></table></div>`,
-    { title: "Por departamento", sub: `${d.departamentos.length} departamentos y partidos (se muestran los 40 más poblados)`, source: "INDEC" });
+    { concept: "poblacion", title: "Por departamento", sub: `${d.departamentos.length} departamentos y partidos (se muestran los 40 más poblados)`, source: "INDEC" });
     return section("Población", head + tot + pyr) + section("Territorio", prov + dep);
   },
 };

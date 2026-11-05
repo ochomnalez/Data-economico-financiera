@@ -335,3 +335,39 @@ code { word-break: break-all; font-size: 12px; }
 body.bars-hidden .top { transform: translateY(-100%); }
 body.bars-hidden .tabs { transform: translateY(100%); }
 @media (prefers-reduced-motion: reduce) { .top, .tabs { transition: none; } }
+
+/* Botoncito "Qué es" */
+.what {
+  flex: none; display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 8px 0 6px;
+  border: 1px solid var(--hair); border-radius: 999px; background: var(--surface);
+  color: var(--ink-2); font-size: 11.5px; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.what svg { width: 14px; height: 14px; }
+.what:active { background: var(--neutral-bg); }
+
+/* Panel inferior */
+.sheet-wrap { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.sheet-bg { position: absolute; inset: 0; background: rgba(0, 0, 0, .38); opacity: 0; transition: opacity .22s; }
+.sheet {
+  position: absolute; left: 0; right: 0; bottom: 0; max-width: 640px; margin: 0 auto; max-height: 86vh; overflow-y: auto;
+  background: var(--surface); color: var(--ink); border-radius: 20px 20px 0 0;
+  padding: 8px 20px calc(24px + env(safe-area-inset-bottom));
+  transform: translateY(100%); transition: transform .28s cubic-bezier(.2, .7, .2, 1);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, .18); -webkit-overflow-scrolling: touch;
+}
+.sheet-wrap.open { pointer-events: auto; }
+.sheet-wrap.open .sheet-bg { opacity: 1; }
+.sheet-wrap.open .sheet { transform: none; }
+.sheet-handle { width: 38px; height: 5px; border-radius: 3px; background: var(--hair); margin: 2px auto 10px; }
+.sheet-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.sheet-head h2 { font-size: 20px; font-weight: 700; }
+.sheet-x { border: 0; background: var(--surface-2); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 13px; color: var(--ink-2); flex: none; }
+.sheet-body h4 { margin: 18px 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.sheet-body p { margin: 0; font-size: 15px; line-height: 1.5; }
+.formula {
+  background: var(--surface-2); border-radius: 12px; padding: 10px 12px; display: grid; gap: 8px;
+  font: 13px/1.45 ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink);
+}
+.formula div + div { border-top: 1px dashed var(--hair); padding-top: 8px; }
+html.sheet-open, html.sheet-open body { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .sheet, .sheet-bg { transition: none; } }

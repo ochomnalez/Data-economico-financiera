@@ -17,18 +17,18 @@ export async function render() {
     { label: "Mensual", value: n(g.vm[L]), unit: "%", foot: `antes ${pct(g.vm[L - 1])}` },
     { label: "Interanual", value: n(g.via[L]), unit: "%", foot: `antes ${pct(g.via[L - 1])}` },
     { label: `Acumulada ${P[L].slice(0, 4)}`, value: n(g.vacum[L]), unit: "%", foot: `ene–${period(P[L]).slice(0, 3)}` },
-  ]), { title: `Inflación de ${period(P[L], { long: true })}`, sub: "Índice de precios al consumidor (IPC), total nacional",
+  ]), { concept: "ipc", title: `Inflación de ${period(P[L], { long: true })}`, sub: "Índice de precios al consumidor (IPC), total nacional",
     infoText: "El IPC mide cuánto cambian, en promedio, los precios de lo que compran los hogares. <b>Mensual</b>: contra el mes anterior. <b>Interanual</b>: contra el mismo mes del año pasado. <b>Acumulada</b>: desde diciembre del año anterior." });
 
   const evol = chartCard({
-    title: "Evolución de la inflación", sub: "Mensual: contra el mes anterior · Interanual: contra el mismo mes del año pasado", modes: [["Mensual", "vm"], ["Interanual", "via"]], range: 24,
+    concept: "variaciones", title: "Evolución de la inflación", sub: "Mensual: contra el mes anterior · Interanual: contra el mismo mes del año pasado", modes: [["Mensual", "vm"], ["Interanual", "via"]], range: 24,
     render: (m) => (m === "vm"
       ? { type: "col", x: P, values: g.vm, name: "Inflación mensual", fmt: pf }
       : { type: "line", x: P, series: [{ name: "Inflación interanual", values: g.via, color: "var(--s1)", area: true }], fmt: pf }),
   });
 
   const comp = chartCard({
-    title: "Núcleo, regulados y estacionales", sub: "Variación mensual",
+    concept: "nucleo", title: "Núcleo, regulados y estacionales", sub: "Variación mensual",
     infoText: "<b>Núcleo</b>: la inflación “de fondo”, sin los precios más volátiles. <b>Regulados</b>: precios con fuerte intervención del Estado (tarifas, combustibles, prepagas, transporte). <b>Estacionales</b>: frutas, verduras, ropa, turismo. Si la núcleo baja, la desinflación es más genuina.",
     range: 24,
     render: () => ({ type: "line", x: P, fmt: pf, series: [
@@ -49,11 +49,11 @@ export async function render() {
         .sort((a, b) => b.value - a.value);
       return bars(items, { fmt: pf });
     },
-  }), { title: "Por rubro", sub: `${period(P[L], { long: true })} · 12 divisiones del IPC`, source: "INDEC" });
+  }), { concept: "rubros", title: "Por rubro", sub: `${period(P[L], { long: true })} · 12 divisiones del IPC`, source: "INDEC" });
 
   const reg_ = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Región</th><th class="r">Mensual</th><th class="r">Interanual</th></tr></thead><tbody>
     ${ipc.regiones.map((r) => `<tr class="${r.name === "Nacional" ? "hl" : ""}"><td>${esc(r.name === "Nacional" ? "Total nacional" : r.name)}</td><td class="r">${pct(r.vm)}</td><td class="r">${pct(r.via)}</td></tr>`).join("")}
-    </tbody></table></div>`, { title: "Por región", sub: period(P[L], { long: true }), source: "INDEC" });
+    </tbody></table></div>`, { concept: "regiones", title: "Por región", sub: period(P[L], { long: true }), source: "INDEC" });
 
   // ── Canastas ──
   const CP = can.p, CL = CP.length - 1;
@@ -61,7 +61,7 @@ export async function render() {
     { label: "Para no ser pobre · CBT", value: ars(can.cbt_h2[CL], { short: true }), foot: `${n(can.cbt_vm[CL], 1, { sign: true })}% mensual` },
     { label: "Para no ser indigente · CBA", value: ars(can.cba_h2[CL], { short: true }), foot: `${n(can.cba_vm[CL], 1, { sign: true })}% mensual` },
   ]) + `<p class="small muted" style="margin:10px 0 0">Ingreso mensual que necesita una familia tipo (2 adultos y 2 chicos) en GBA para no ser pobre (CBT) o indigente (CBA).</p>`,
-  { title: `Canastas básicas · ${period(CP[CL], { long: true })}`,
+  { concept: "canastas", title: `Canastas básicas · ${period(CP[CL], { long: true })}`,
     infoText: "La <b>Canasta Básica Alimentaria (CBA)</b> cubre las necesidades mínimas de alimentos: quien no llega es indigente. La <b>Canasta Básica Total (CBT)</b> suma otros bienes y servicios (ropa, transporte, salud, educación): quien no llega es pobre." });
 
   const canHog = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Hogar</th><th class="r">CBA<div class="small muted" style="font-weight:400">alimentos</div></th><th class="r">CBT<div class="small muted" style="font-weight:400">alimentos + otros</div></th></tr></thead><tbody>
@@ -69,11 +69,11 @@ export async function render() {
     <tr class="hl"><td>${esc(can.hogares.h2)}</td><td class="r">${ars(can.cba_h2[CL])}</td><td class="r">${ars(can.cbt_h2[CL])}</td></tr>
     <tr><td>${esc(can.hogares.h3)}</td><td class="r">${ars(can.cba_h3[CL])}</td><td class="r">${ars(can.cbt_h3[CL])}</td></tr>
     <tr><td>Por adulto equivalente</td><td class="r">${ars(can.cba_ae[CL])}</td><td class="r">${ars(can.cbt_ae[CL])}</td></tr>
-    </tbody></table></div>`, { title: "Según el tipo de hogar", sub: "Pesos por mes", source: "INDEC" });
+    </tbody></table></div>`, { concept: "canastas_hogar", title: "Según el tipo de hogar", sub: "Pesos por mes", source: "INDEC" });
 
   const ipcVia = Object.fromEntries(P.map((p, i) => [p, g.via[i]]));
   const canChart = chartCard({
-    title: "Canastas vs. inflación", sub: "Cuánto subió cada una en los últimos 12 meses (variación interanual)", range: 24,
+    concept: "canastas", title: "Canastas vs. inflación", sub: "Cuánto subió cada una en los últimos 12 meses (variación interanual)", range: 24,
     infoText: "<b>CBT</b> (Canasta Básica Total): lo mínimo para no ser pobre — alimentos más ropa, transporte, salud, educación y otros gastos. <b>CBA</b> (Canasta Básica Alimentaria): solo los alimentos mínimos; quien no la cubre es indigente. <b>IPC</b> (Índice de Precios al Consumidor): la inflación promedio de todo lo que consumen los hogares. Si las canastas suben más que el IPC, a los hogares de menores ingresos les pega más la inflación.",
     render: () => ({ type: "line", x: CP, fmt: pf, series: [
       { name: "CBT · Canasta básica total (pobreza)", values: can.cbt_via, color: "var(--s4)" },
@@ -100,7 +100,7 @@ export async function render() {
   const byId = Object.fromEntries(dol.casas.map((c) => [c.id, c]));
   const dRanges = [["3M", 66], ["1A", 250], ["3A", 750], ["Todo", 0]];
   const dolChart = chartCard({
-    title: "Cotización histórica", sub: "Precio de venta, en pesos. En “Brecha”: cuánto más caro que el oficial",
+    concept: "dolar", title: "Cotización histórica", sub: "Precio de venta, en pesos. En “Brecha”: cuánto más caro que el oficial",
     infoText: "<b>Oficial</b>: el que vende el Banco Nación. <b>MEP</b> (Mercado Electrónico de Pagos) o dólar bolsa: se obtiene comprando y vendiendo bonos en pesos y en dólares, dentro del país. <b>CCL</b> (contado con liquidación): igual, pero los dólares quedan en una cuenta del exterior. <b>Blue</b>: el mercado informal. La <b>brecha</b> es cuánto más caro está cada uno respecto del oficial.", ranges: dRanges, range: 250,
     modes: [["Precio", "v"], ["Brecha", "b"]],
     source: "argentinadatos.com (no es dato del INDEC)",
@@ -119,7 +119,7 @@ export async function render() {
     ${section("¿Qué empuja los precios?", comp)}
     ${section("Rubros y regiones", rubros + reg_)}
     ${section("Canastas básicas", canHead + canChart + canHog, { idAttr: "canastas" })}
-    ${section("Dólar", card(`<div id="${fxId}"><div class="skeleton" style="height:180px"></div></div>`, { title: "Cotizaciones de hoy" }) + dolChart, { idAttr: "dolar", sub: "Fuente externa al INDEC, para tener el panorama completo." })}
+    ${section("Dólar", card(`<div id="${fxId}"><div class="skeleton" style="height:180px"></div></div>`, { concept: "dolar", title: "Cotizaciones de hoy" }) + dolChart, { idAttr: "dolar", sub: "Fuente externa al INDEC, para tener el panorama completo." })}
     ${section("Más sobre precios", card(`<div class="list">
       <a class="list-item" href="#/mas/mayoristas"><div class="ico">${I.wholesale}</div><div><div class="t">Precios mayoristas</div><div class="d">IPIM, IPIB e IPP: suelen anticipar al IPC</div></div><div class="v">→</div></a>
       <a class="list-item" href="#/mas/construccion"><div class="ico">${I.crane}</div><div><div class="t">Costo de la construcción</div><div class="d">Materiales, mano de obra y gastos generales</div></div><div class="v">→</div></a>
