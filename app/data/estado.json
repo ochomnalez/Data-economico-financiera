@@ -1,0 +1,250 @@
+{
+ "actualizado": "2026-11-05T23:01:34+00:00",
+ "periodos": {
+  "ipc": "2026-09",
+  "canastas": "2026-09",
+  "mayoristas": "2026-09",
+  "icc": "2026-09",
+  "obra_publica": "2026-09",
+  "emae": "2026-08",
+  "ipi_manufacturero": "2026-08",
+  "ipi_minero": "2026-08",
+  "salarios": "2026-08",
+  "trabajo": "2026-T2",
+  "pobreza": "2026-S1",
+  "crianza": "2026-09",
+  "comex": "2026-09",
+  "poblacion": "2040"
+ },
+ "ultimos": {
+  "ipc": {
+   "id": "ipc",
+   "periodo": "2026-09",
+   "titulo": "Inflación de septiembre 2026",
+   "texto": "1,9% mensual · 33,4% interanual. Respecto del mes anterior (1,7%) subió. La núcleo fue 1,7%.",
+   "valor": 1.9,
+   "unidad": "%",
+   "ruta": "#/precios"
+  },
+  "canastas": {
+   "id": "canastas",
+   "periodo": "2026-09",
+   "titulo": "Canastas básicas de septiembre 2026",
+   "texto": "Una familia tipo necesitó $1.632.505 para no ser pobre (CBT, +1,7% mensual) y $738.690 para no ser indigente (CBA).",
+   "valor": 1632505.0,
+   "unidad": "$",
+   "ruta": "#/precios/canastas"
+  },
+  "mayoristas": {
+   "id": "mayoristas",
+   "periodo": "2026-09",
+   "titulo": "Precios mayoristas de septiembre 2026",
+   "texto": "IPIM 3,2% mensual · 29,2% interanual.",
+   "valor": 3.2,
+   "unidad": "%",
+   "ruta": "#/mas/mayoristas"
+  },
+  "icc": {
+   "id": "icc",
+   "periodo": "2026-09",
+   "titulo": "Costo de la construcción de septiembre 2026",
+   "texto": "1,5% mensual · 31,3% interanual (GBA).",
+   "valor": 1.5,
+   "unidad": "%",
+   "ruta": "#/mas/construccion"
+  },
+  "obra_publica": {
+   "id": "obra_publica",
+   "periodo": "2026-09",
+   "titulo": "Índices para obra pública de septiembre 2026",
+   "texto": "Se actualizaron los 21 índices del Decreto 1295/2002.",
+   "valor": null,
+   "unidad": "",
+   "ruta": "#/mas/obra-publica",
+   "silencioso": true
+  },
+  "emae": {
+   "id": "emae",
+   "periodo": "2026-08",
+   "titulo": "Actividad económica (EMAE) de agosto 2026",
+   "texto": "La economía creció 0,1% respecto del mes anterior (desestacionalizado) y −1,7% interanual.",
+   "valor": 0.07,
+   "unidad": "%",
+   "ruta": "#/actividad"
+  },
+  "ipi_manufacturero": {
+   "id": "ipi_manufacturero",
+   "periodo": "2026-08",
+   "titulo": "Producción industrial de agosto 2026",
+   "texto": "+1,9% mensual (desest.) · −3,2% interanual.",
+   "valor": 1.93,
+   "unidad": "%",
+   "ruta": "#/mas/industria"
+  },
+  "ipi_minero": {
+   "id": "ipi_minero",
+   "periodo": "2026-08",
+   "titulo": "Producción minera de agosto 2026",
+   "texto": "+1,9% mensual (desest.) · +8,4% interanual.",
+   "valor": 1.89,
+   "unidad": "%",
+   "ruta": "#/mas/mineria"
+  },
+  "salarios": {
+   "id": "salarios",
+   "periodo": "2026-08",
+   "titulo": "Salarios de agosto 2026",
+   "texto": "Nivel general 2,7% mensual · 35,6% interanual. Salario real registrado: −2,3% interanual (agosto 2026).",
+   "valor": 2.73,
+   "unidad": "%",
+   "ruta": "#/ingresos"
+  },
+  "trabajo": {
+   "id": "trabajo",
+   "periodo": "2026-T2",
+   "titulo": "Mercado de trabajo — 2.º trimestre 2026",
+   "texto": "Desocupación 7,9% (un año antes: 7,6%). Informalidad 20,2%.",
+   "valor": 7.9,
+   "unidad": "%",
+   "ruta": "#/ingresos/trabajo"
+  },
+  "pobreza": {
+   "id": "pobreza",
+   "periodo": "2026-S1",
+   "titulo": "Pobreza — 1.er semestre 2026",
+   "texto": "32,3% de las personas es pobre (semestre anterior: 28,2%). Indigencia: 7,5%.",
+   "valor": 32.3,
+   "unidad": "%",
+   "ruta": "#/ingresos/pobreza"
+  },
+  "crianza": {
+   "id": "crianza",
+   "periodo": "2026-09",
+   "titulo": "Canasta de crianza de septiembre 2026",
+   "texto": "Criar a un chico de 6 a 12 años costó $728.850 por mes (bienes, servicios y tiempo de cuidado).",
+   "valor": 728850.0,
+   "unidad": "$",
+   "ruta": "#/mas/crianza"
+  },
+  "comex": {
+   "id": "comex",
+   "periodo": "2026-09",
+   "titulo": "Comercio exterior de septiembre 2026",
+   "texto": "Superávit comercial de US$ 2.976 millones. Exportaciones US$ 10.036 M · importaciones US$ 7.060 M.",
+   "valor": 2976.5,
+   "unidad": "US$ M",
+   "ruta": "#/mas/comercio"
+  },
+  "poblacion": {
+   "id": "poblacion",
+   "periodo": "2040",
+   "titulo": "Proyecciones de población",
+   "texto": "Argentina tiene 46,5 millones de habitantes en 2026.",
+   "valor": 46466688,
+   "unidad": "hab.",
+   "ruta": "#/mas/poblacion",
+   "silencioso": true
+  }
+ },
+ "tablas": {
+  "ipc": {
+   "nombre": "Inflación (IPC)",
+   "seccion": "Precios",
+   "frecuencia": "Mensual",
+   "endpoint": "ipc_nacional",
+   "periodo": "2026-09"
+  },
+  "canastas": {
+   "nombre": "Canastas básicas (CBA y CBT)",
+   "seccion": "Precios",
+   "frecuencia": "Mensual",
+   "endpoint": "valorizacion_canastas_cba_cbt",
+   "periodo": "2026-09"
+  },
+  "emae": {
+   "nombre": "Actividad económica (EMAE)",
+   "seccion": "Actividad",
+   "frecuencia": "Mensual",
+   "endpoint": "estimador-mensual-de-actividad-economica-nivel-general, estimador-mensual-de-actividad-economica-sectores",
+   "periodo": "2026-08"
+  },
+  "salarios": {
+   "nombre": "Índice de salarios",
+   "seccion": "Ingresos",
+   "frecuencia": "Mensual",
+   "endpoint": "indice_salarios",
+   "periodo": "2026-08"
+  },
+  "trabajo": {
+   "nombre": "Mercado de trabajo (EPH)",
+   "seccion": "Ingresos",
+   "frecuencia": "Trimestral",
+   "endpoint": "mercado_trabajo_eph",
+   "periodo": "2026-T2"
+  },
+  "pobreza": {
+   "nombre": "Pobreza e indigencia (EPH)",
+   "seccion": "Ingresos",
+   "frecuencia": "Semestral",
+   "endpoint": "pobreza_eph",
+   "periodo": "2026-S1"
+  },
+  "mayoristas": {
+   "nombre": "Precios mayoristas (SIPM)",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "sipm_precios_mayoristas",
+   "periodo": "2026-09"
+  },
+  "icc": {
+   "nombre": "Costo de la construcción (ICC)",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "icc_precios_construccion",
+   "periodo": "2026-09"
+  },
+  "obra_publica": {
+   "nombre": "Redeterminación de precios de obra pública",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "redeterminacion_precios_contratos_obras_publicas",
+   "periodo": "2026-09"
+  },
+  "ipi_manufacturero": {
+   "nombre": "Producción industrial (IPI manufacturero)",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "ipi_manufacturero",
+   "periodo": "2026-08"
+  },
+  "ipi_minero": {
+   "nombre": "Producción minera (IPI minero)",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "ipi_minero",
+   "periodo": "2026-08"
+  },
+  "crianza": {
+   "nombre": "Canasta de crianza",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "canasta-crianza",
+   "periodo": "2026-09"
+  },
+  "comex": {
+   "nombre": "Comercio exterior",
+   "seccion": "Más indicadores",
+   "frecuencia": "Mensual",
+   "endpoint": "comercio_exterior_exportacion_bienes, comercio_exterior_importacion_bienes, comercio_exterior_nomenclaturas",
+   "periodo": "2026-09"
+  },
+  "poblacion": {
+   "nombre": "Población",
+   "seccion": "Más indicadores",
+   "frecuencia": "Anual (proyecciones)",
+   "endpoint": "proyecciones_poblacion_nacional_2022_2040, proyecciones_poblacion_jurisdiccion_2022_2040, estimaciones_poblacion_departamento_2022_2035",
+   "periodo": "2040"
+  }
+ },
+ "errores": {}
+}

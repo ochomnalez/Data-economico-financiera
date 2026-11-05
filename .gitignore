@@ -1,0 +1,4 @@
+pipeline/.novedades.json
+__pycache__/
+*.pyc
+.venv/
