@@ -12,7 +12,7 @@ export async function render() {
   const vm = lastOf(g.vm_desest), via = lastOf(g.via);
 
   const head = card(stats([
-    { label: "Mensual (desest.)", value: n(vm.v, 1, { sign: true }), unit: "%", foot: `antes ${pf(g.vm_desest[vm.i - 1])}` },
+    { label: "Mensual (sin estacionalidad)", value: n(vm.v, 1, { sign: true }), unit: "%", foot: `antes ${pf(g.vm_desest[vm.i - 1])}` },
     { label: "Interanual", value: n(via.v, 1, { sign: true }), unit: "%", foot: `antes ${pf(g.via[via.i - 1])}` },
     { label: "Vs. máximo", value: emae.pico.dist >= -0.05 ? "Récord" : n(emae.pico.dist, 1), unit: emae.pico.dist >= -0.05 ? "" : "%", foot: `pico: ${period(emae.pico.periodo)}` },
   ]), { title: `Actividad económica · ${period(P[vm.i], { long: true })}`, sub: "Estimador mensual de actividad económica (EMAE)",
@@ -21,12 +21,12 @@ export async function render() {
   const nivel = chartCard({
     title: "Nivel de actividad", sub: "Índice base 2004 = 100", range: 60,
     render: () => ({ type: "line", x: P, fmt: (v) => n(v, 1), series: [
-      { name: "Desestacionalizada", values: g.desest, color: "var(--s1)" },
-      { name: "Tendencia-ciclo", values: g.tend, color: "var(--s2)" }] }),
+      { name: "Desestacionalizada (sin efectos de calendario)", values: g.desest, color: "var(--s1)" },
+      { name: "Tendencia-ciclo (la dirección de fondo)", values: g.tend, color: "var(--s2)" }] }),
   });
   const vars = chartCard({
-    title: "Variaciones", modes: [["Mensual", "m"], ["Interanual", "a"]], range: 24,
-    render: (m) => ({ type: "col", x: P, values: m === "m" ? g.vm_desest : g.via, name: m === "m" ? "Var. mensual desest." : "Var. interanual", fmt: pf }),
+    title: "Variaciones", sub: "Mensual: contra el mes anterior, sin efectos de calendario · Interanual: contra el mismo mes del año pasado", modes: [["Mensual", "m"], ["Interanual", "a"]], range: 24,
+    render: (m) => ({ type: "col", x: P, values: m === "m" ? g.vm_desest : g.via, name: m === "m" ? "Variación mensual desestacionalizada" : "Variación interanual", fmt: pf }),
   });
 
   const SL = emae.ps.length - 1;

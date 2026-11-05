@@ -21,7 +21,7 @@ export async function render() {
     infoText: "El IPC mide cuánto cambian, en promedio, los precios de lo que compran los hogares. <b>Mensual</b>: contra el mes anterior. <b>Interanual</b>: contra el mismo mes del año pasado. <b>Acumulada</b>: desde diciembre del año anterior." });
 
   const evol = chartCard({
-    title: "Evolución de la inflación", modes: [["Mensual", "vm"], ["Interanual", "via"]], range: 24,
+    title: "Evolución de la inflación", sub: "Mensual: contra el mes anterior · Interanual: contra el mismo mes del año pasado", modes: [["Mensual", "vm"], ["Interanual", "via"]], range: 24,
     render: (m) => (m === "vm"
       ? { type: "col", x: P, values: g.vm, name: "Inflación mensual", fmt: pf }
       : { type: "line", x: P, series: [{ name: "Inflación interanual", values: g.via, color: "var(--s1)", area: true }], fmt: pf }),
@@ -37,8 +37,8 @@ export async function render() {
       { name: "Estacionales", values: est.vm, color: "var(--s3)" }] }),
   }) + card(stats([
     { label: "Núcleo anualizada", value: ipc.nucleo_3m_anual !== null ? n(ipc.nucleo_3m_anual, 0) : "s/d", unit: "%", foot: "ritmo de los últimos 3 meses" },
-    { label: "Bienes", value: n(bie.vm[L]), unit: "%", foot: `${pct(bie.via[L])} i.a.` },
-    { label: "Servicios", value: n(ser.vm[L]), unit: "%", foot: `${pct(ser.via[L])} i.a.` },
+    { label: "Bienes", value: n(bie.vm[L]), unit: "%", foot: `${pct(bie.via[L])} interanual` },
+    { label: "Servicios", value: n(ser.vm[L]), unit: "%", foot: `${pct(ser.via[L])} interanual` },
   ]));
 
   const rubros = card(switcher({
@@ -58,13 +58,13 @@ export async function render() {
   // ── Canastas ──
   const CP = can.p, CL = CP.length - 1;
   const canHead = card(stats([
-    { label: "Pobreza (CBT)", value: ars(can.cbt_h2[CL], { short: true }), foot: `${n(can.cbt_vm[CL], 1, { sign: true })}% mensual` },
-    { label: "Indigencia (CBA)", value: ars(can.cba_h2[CL], { short: true }), foot: `${n(can.cba_vm[CL], 1, { sign: true })}% mensual` },
+    { label: "Para no ser pobre · CBT", value: ars(can.cbt_h2[CL], { short: true }), foot: `${n(can.cbt_vm[CL], 1, { sign: true })}% mensual` },
+    { label: "Para no ser indigente · CBA", value: ars(can.cba_h2[CL], { short: true }), foot: `${n(can.cba_vm[CL], 1, { sign: true })}% mensual` },
   ]) + `<p class="small muted" style="margin:10px 0 0">Ingreso mensual que necesita una familia tipo (2 adultos y 2 chicos) en GBA para no ser pobre (CBT) o indigente (CBA).</p>`,
   { title: `Canastas básicas · ${period(CP[CL], { long: true })}`,
     infoText: "La <b>Canasta Básica Alimentaria (CBA)</b> cubre las necesidades mínimas de alimentos: quien no llega es indigente. La <b>Canasta Básica Total (CBT)</b> suma otros bienes y servicios (ropa, transporte, salud, educación): quien no llega es pobre." });
 
-  const canHog = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Hogar</th><th class="r">CBA</th><th class="r">CBT</th></tr></thead><tbody>
+  const canHog = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Hogar</th><th class="r">CBA<div class="small muted" style="font-weight:400">alimentos</div></th><th class="r">CBT<div class="small muted" style="font-weight:400">alimentos + otros</div></th></tr></thead><tbody>
     <tr><td>${esc(can.hogares.h1)}</td><td class="r">${ars(can.cba_h1[CL])}</td><td class="r">${ars(can.cbt_h1[CL])}</td></tr>
     <tr class="hl"><td>${esc(can.hogares.h2)}</td><td class="r">${ars(can.cba_h2[CL])}</td><td class="r">${ars(can.cbt_h2[CL])}</td></tr>
     <tr><td>${esc(can.hogares.h3)}</td><td class="r">${ars(can.cba_h3[CL])}</td><td class="r">${ars(can.cbt_h3[CL])}</td></tr>
@@ -73,11 +73,12 @@ export async function render() {
 
   const ipcVia = Object.fromEntries(P.map((p, i) => [p, g.via[i]]));
   const canChart = chartCard({
-    title: "Canastas vs. inflación", sub: "Variación interanual", range: 24,
+    title: "Canastas vs. inflación", sub: "Cuánto subió cada una en los últimos 12 meses (variación interanual)", range: 24,
+    infoText: "<b>CBT</b> (Canasta Básica Total): lo mínimo para no ser pobre — alimentos más ropa, transporte, salud, educación y otros gastos. <b>CBA</b> (Canasta Básica Alimentaria): solo los alimentos mínimos; quien no la cubre es indigente. <b>IPC</b> (Índice de Precios al Consumidor): la inflación promedio de todo lo que consumen los hogares. Si las canastas suben más que el IPC, a los hogares de menores ingresos les pega más la inflación.",
     render: () => ({ type: "line", x: CP, fmt: pf, series: [
-      { name: "CBT", values: can.cbt_via, color: "var(--s4)" },
-      { name: "CBA", values: can.cba_via, color: "var(--s2)" },
-      { name: "IPC general", values: CP.map((p) => ipcVia[p] ?? null), color: "var(--s1)" }] }),
+      { name: "CBT · Canasta básica total (pobreza)", values: can.cbt_via, color: "var(--s4)" },
+      { name: "CBA · Canasta básica alimentaria (indigencia)", values: can.cba_via, color: "var(--s2)" },
+      { name: "IPC · Inflación general", values: CP.map((p) => ipcVia[p] ?? null), color: "var(--s1)" }] }),
   });
 
   // ── Dólar ──
@@ -99,11 +100,12 @@ export async function render() {
   const byId = Object.fromEntries(dol.casas.map((c) => [c.id, c]));
   const dRanges = [["3M", 66], ["1A", 250], ["3A", 750], ["Todo", 0]];
   const dolChart = chartCard({
-    title: "Cotización histórica", sub: "Precio de venta, en pesos", ranges: dRanges, range: 250,
+    title: "Cotización histórica", sub: "Precio de venta, en pesos. En “Brecha”: cuánto más caro que el oficial",
+    infoText: "<b>Oficial</b>: el que vende el Banco Nación. <b>MEP</b> (Mercado Electrónico de Pagos) o dólar bolsa: se obtiene comprando y vendiendo bonos en pesos y en dólares, dentro del país. <b>CCL</b> (contado con liquidación): igual, pero los dólares quedan en una cuenta del exterior. <b>Blue</b>: el mercado informal. La <b>brecha</b> es cuánto más caro está cada uno respecto del oficial.", ranges: dRanges, range: 250,
     modes: [["Precio", "v"], ["Brecha", "b"]],
     source: "argentinadatos.com (no es dato del INDEC)",
     render: (m) => {
-      const ser = [["oficial", "Oficial", "var(--s1)"], ["bolsa", "MEP", "var(--s3)"], ["contadoconliqui", "CCL", "var(--s7)"], ["blue", "Blue", "var(--s2)"]]
+      const ser = [["oficial", "Oficial (Banco Nación)", "var(--s1)"], ["bolsa", "MEP · dólar bolsa", "var(--s3)"], ["contadoconliqui", "CCL · contado con liquidación", "var(--s7)"], ["blue", "Blue · informal", "var(--s2)"]]
         .filter(([c]) => byId[c]);
       if (m === "v") return { type: "line", x: dol.fechas, fmt: (v) => "$" + n(v, 0), yfmt: (v) => n(v, 0), series: ser.map(([c, name, color]) => ({ name, color, values: byId[c].v })) };
       const of = byId.oficial.v;

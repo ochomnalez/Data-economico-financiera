@@ -137,7 +137,7 @@ export function chartCard({ title, sub = "", modes, ranges = RANGES_M, range = 2
       slot.innerHTML = "";
       if (spec.type === "col") {
         columnChart(slot, { ...spec, height: spec.height || height, x, values: spec.values.slice(n) });
-        leg.innerHTML = "";
+        leg.innerHTML = spec.name ? `<div class="legend"><span><i class="sw" style="background:${spec.pos || "var(--pos)"}"></i>${esc(spec.name)}</span></div>` : "";
       } else {
         const series = spec.series.map((s) => ({ ...s, values: s.values.slice(n) }));
         lineChart(slot, { ...spec, height: spec.height || height, x, series });

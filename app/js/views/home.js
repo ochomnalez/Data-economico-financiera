@@ -90,7 +90,7 @@ export async function render() {
     ${hero}
     ${feed ? `<div class="card" style="margin-top:12px"><div class="feed">${feed}</div>
       <a href="#/novedades" class="small" style="display:block;margin-top:10px;font-weight:600">Ver todas las publicaciones →</a></div>` : ""}
-    ${section("Tablero", `<div class="kpis">${tiles}</div>`, { sub: "Los indicadores clave, con su último dato. Tocá cualquiera para ver el detalle." })}
+    ${section("Tablero", `<div class="kpis">${tiles}</div>`, { sub: "Los indicadores clave, con su último dato. Tocá cualquiera para ver el detalle.<br><span class=\"small muted\"><b>i.a.</b> = interanual (contra el mismo mes del año anterior) · <b>p.p.</b> = puntos porcentuales (diferencia entre dos porcentajes) · <b>mens.</b> = contra el mes anterior</span>" })}
     ${section("Lectura rápida", `<div class="card"><ul class="insights">${ins}</ul></div>`, { sub: "Lo que dicen los números, en criollo." })}
     ${section("Dólar hoy", `<a class="card" href="#/precios/dolar" style="display:block;color:inherit" id="${fxId}"><div class="skeleton" style="height:56px"></div></a>`, { link: ["Histórico", "#/precios/dolar"] })}
     <div class="foot">Fuente: INDEC — Catálogo API-INDEC.<br>Actualizado ${esc(ago(estado.actualizado))}.</div>`;
