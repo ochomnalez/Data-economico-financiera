@@ -1,5 +1,27 @@
 [
  {
+  "id": "ipi_manufacturero",
+  "periodo": "2026-09",
+  "titulo": "Producción industrial de septiembre 2026",
+  "texto": "+0,7% mensual (desest.) · −1,8% interanual.",
+  "valor": 0.73,
+  "unidad": "%",
+  "ruta": "#/mas/industria",
+  "fecha": "2026-11-06T23:49:40+00:00",
+  "nuevo_periodo": true
+ },
+ {
+  "id": "ipi_minero",
+  "periodo": "2026-09",
+  "titulo": "Producción minera de septiembre 2026",
+  "texto": "−0,1% mensual (desest.) · +7,1% interanual.",
+  "valor": -0.09,
+  "unidad": "%",
+  "ruta": "#/mas/mineria",
+  "fecha": "2026-11-06T23:49:40+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "caba_ipc",
   "periodo": "2026-10",
   "titulo": "Inflación en la Ciudad (IPCBA) de octubre 2026",

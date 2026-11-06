@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T18:03:59+00:00",
+ "actualizado": "2026-11-06T23:49:40+00:00",
  "periodos": {
   "ipc": "2026-09",
   "canastas": "2026-09",
@@ -7,8 +7,8 @@
   "icc": "2026-09",
   "obra_publica": "2026-09",
   "emae": "2026-08",
-  "ipi_manufacturero": "2026-08",
-  "ipi_minero": "2026-08",
+  "ipi_manufacturero": "2026-09",
+  "ipi_minero": "2026-09",
   "salarios": "2026-08",
   "trabajo": "2026-T2",
   "pobreza": "2026-S1",
@@ -77,19 +77,19 @@
   },
   "ipi_manufacturero": {
    "id": "ipi_manufacturero",
-   "periodo": "2026-08",
-   "titulo": "Producción industrial de agosto 2026",
-   "texto": "+1,9% mensual (desest.) · −3,2% interanual.",
-   "valor": 1.93,
+   "periodo": "2026-09",
+   "titulo": "Producción industrial de septiembre 2026",
+   "texto": "+0,7% mensual (desest.) · −1,8% interanual.",
+   "valor": 0.73,
    "unidad": "%",
    "ruta": "#/mas/industria"
   },
   "ipi_minero": {
    "id": "ipi_minero",
-   "periodo": "2026-08",
-   "titulo": "Producción minera de agosto 2026",
-   "texto": "+1,9% mensual (desest.) · +8,4% interanual.",
-   "valor": 1.89,
+   "periodo": "2026-09",
+   "titulo": "Producción minera de septiembre 2026",
+   "texto": "−0,1% mensual (desest.) · +7,1% interanual.",
+   "valor": -0.09,
    "unidad": "%",
    "ruta": "#/mas/mineria"
   },
@@ -245,14 +245,14 @@
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "ipi_manufacturero",
-   "periodo": "2026-08"
+   "periodo": "2026-09"
   },
   "ipi_minero": {
    "nombre": "Producción minera (IPI minero)",
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "ipi_minero",
-   "periodo": "2026-08"
+   "periodo": "2026-09"
   },
   "crianza": {
    "nombre": "Canasta de crianza",
