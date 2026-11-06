@@ -272,4 +272,43 @@ export const G = {
     formula: ["Cada barra = población de ese sexo en ese grupo de 5 años de edad"],
     lectura: "Una base ancha indica muchos nacimientos; una base angosta y una parte media o alta más ancha indica una población que envejece. Comparar el año actual con 2040 muestra hacia dónde va el país.",
   },
+  caba_ipc: {
+    titulo: "Inflación de la Ciudad (IPCBA)",
+    que: "El <b>Índice de Precios al Consumidor de la Ciudad de Buenos Aires</b> lo elabora el Instituto de Estadística de la Ciudad (IDECBA), no el INDEC. Mide los precios de lo que consumen los hogares porteños, con una canasta propia en la que los <b>servicios</b> (alquiler, expensas, salud, educación, transporte) pesan más que en el IPC nacional.",
+    formula: [
+      "IPCBA = Σ (peso del producto × precio de hoy ÷ precio base) × 100 — base 2021 = 100",
+      "Variación mensual = (IPCBA del mes ÷ IPCBA del mes anterior − 1) × 100",
+      "Interanual = (IPCBA del mes ÷ IPCBA de hace 12 meses − 1) × 100",
+    ],
+    lectura: "Se publica unos días <b>antes</b> que el IPC del INDEC, así que sirve de anticipo. No tiene por qué coincidir: la canasta porteña es distinta (más servicios, menos alimentos). <b>Resto IPCBA</b> es el equivalente a la inflación núcleo: todo menos estacionales y regulados.",
+  },
+  caba_incidencia: {
+    titulo: "Incidencia por rubro",
+    que: "La <b>incidencia</b> dice cuántos puntos de la inflación del mes aportó cada rubro. Combina cuánto subió el rubro con cuánto pesa en la canasta.",
+    formula: [
+      "Incidencia del rubro ≈ peso del rubro × variación del rubro",
+      "Σ incidencias de todos los rubros = inflación del mes",
+    ],
+    lectura: "Ejemplo: si la inflación fue 2% y Vivienda tiene incidencia 0,5, Vivienda explica medio punto de esos 2 (un cuarto de la inflación del mes). Un rubro puede subir mucho y aportar poco si pesa poco.",
+  },
+  caba_lineas: {
+    titulo: "Líneas de pobreza e indigencia de la Ciudad",
+    que: "Son el ingreso mensual que necesita cada tipo de hogar porteño para no ser pobre (<b>línea de pobreza</b>, equivalente a la CBT) o indigente (<b>línea de indigencia</b>, equivalente a la CBA). Las calcula el IDECBA con precios de la Ciudad.",
+    formula: [
+      "Línea de indigencia = canasta alimentaria del hogar, valorizada con el IPCBA",
+      "Línea de pobreza = línea de indigencia + bienes y servicios no alimentarios del hogar",
+      "Hogar pobre: ingreso total del hogar < línea de pobreza",
+    ],
+    lectura: "Son más altas que las del INDEC para el Gran Buenos Aires porque la Ciudad usa su propia canasta, con más peso de servicios. Tener la vivienda en propiedad o alquilarla cambia mucho la línea de pobreza (compará los hogares 4 y 5).",
+  },
+  alquileres: {
+    titulo: "Alquileres en la Ciudad",
+    que: "Es el precio promedio mensual al que se <b>publican</b> departamentos en alquiler (usados y a estrenar) en la Ciudad, según los avisos de portales inmobiliarios. Lo releva el IDECBA.",
+    formula: [
+      "Precio por m² = Σ precio total publicado ÷ Σ superficie publicada",
+      "Precio de referencia = precio por m² × superficie tipo (30 m² 1 amb. · 43 m² 2 amb. · 70 m² 3 amb.)",
+      "Variación real ≈ (1 + suba del alquiler) ÷ (1 + inflación) − 1",
+    ],
+    lectura: "Es el precio de <b>oferta</b> (lo que se pide en el aviso), no el precio final pactado, y no incluye expensas. Los últimos meses son provisorios. Si sube más que la inflación, alquilar se encarece en términos reales.",
+  },
 };
