@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T00:00:36+00:00",
+ "actualizado": "2026-11-06T16:04:04+00:00",
  "periodos": {
   "ipc": "2026-09",
   "canastas": "2026-09",
@@ -14,7 +14,10 @@
   "pobreza": "2026-S1",
   "crianza": "2026-09",
   "comex": "2026-09",
-  "poblacion": "2040"
+  "poblacion": "2040",
+  "caba_ipc": "2026-10",
+  "caba_lineas": "2026-09",
+  "caba_alquileres": "2026-09"
  },
  "ultimos": {
   "ipc": {
@@ -144,6 +147,33 @@
    "unidad": "hab.",
    "ruta": "#/mas/poblacion",
    "silencioso": true
+  },
+  "caba_ipc": {
+   "id": "caba_ipc",
+   "periodo": "2026-10",
+   "titulo": "Inflación en la Ciudad (IPCBA) de octubre 2026",
+   "texto": "1,9% mensual · 32,5% interanual en CABA. Es un anticipo: el INDEC publica el IPC nacional unos días después.",
+   "valor": 1.92,
+   "unidad": "%",
+   "ruta": "#/mas/caba"
+  },
+  "caba_lineas": {
+   "id": "caba_lineas",
+   "periodo": "2026-09",
+   "titulo": "Líneas de pobreza en la Ciudad — septiembre 2026",
+   "texto": "Una pareja con dos hijos, propietaria, necesitó $1.687.299 para no ser pobre en CABA ($925.941 para no ser indigente).",
+   "valor": 1687299.0,
+   "unidad": "$",
+   "ruta": "#/mas/caba"
+  },
+  "caba_alquileres": {
+   "id": "caba_alquileres",
+   "periodo": "2026-09",
+   "titulo": "Alquileres en la Ciudad — septiembre 2026",
+   "texto": "Un 2 ambientes se publicó en promedio a $810.787 por mes (+26,4% interanual).",
+   "valor": 810787.0,
+   "unidad": "$",
+   "ruta": "#/mas/caba"
   }
  },
  "tablas": {
@@ -244,6 +274,27 @@
    "frecuencia": "Anual (proyecciones)",
    "endpoint": "proyecciones_poblacion_nacional_2022_2040, proyecciones_poblacion_jurisdiccion_2022_2040, estimaciones_poblacion_departamento_2022_2035",
    "periodo": "2040"
+  },
+  "caba_ipc": {
+   "nombre": "Inflación de la Ciudad (IPCBA)",
+   "seccion": "Ciudad de Buenos Aires",
+   "frecuencia": "Mensual",
+   "endpoint": "IDECBA · banco de datos",
+   "periodo": "2026-10"
+  },
+  "caba_lineas": {
+   "nombre": "Líneas de pobreza e indigencia de la Ciudad",
+   "seccion": "Ciudad de Buenos Aires",
+   "frecuencia": "Mensual",
+   "endpoint": "IDECBA · banco de datos",
+   "periodo": "2026-09"
+  },
+  "caba_alquileres": {
+   "nombre": "Alquileres en la Ciudad",
+   "seccion": "Ciudad de Buenos Aires",
+   "frecuencia": "Mensual",
+   "endpoint": "IDECBA · banco de datos",
+   "periodo": "2026-09"
   }
  },
  "errores": {}
