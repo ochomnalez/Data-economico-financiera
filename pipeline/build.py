@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from indec import get, get_all  # noqa: E402
+import caba  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "app" / "data"
@@ -674,7 +675,23 @@ INFO = {
     "poblacion": ("Población", "Más indicadores", "Anual (proyecciones)",
                   "proyecciones_poblacion_nacional_2022_2040, proyecciones_poblacion_jurisdiccion_2022_2040, "
                   "estimaciones_poblacion_departamento_2022_2035"),
+    "caba_ipc": ("Inflación de la Ciudad (IPCBA)", "Ciudad de Buenos Aires", "Mensual", "IDECBA · banco de datos"),
+    "caba_lineas": ("Líneas de pobreza e indigencia de la Ciudad", "Ciudad de Buenos Aires", "Mensual", "IDECBA · banco de datos"),
+    "caba_alquileres": ("Alquileres en la Ciudad", "Ciudad de Buenos Aires", "Mensual", "IDECBA · banco de datos"),
 }
+
+
+# Ciudad de Buenos Aires (IDECBA): ver pipeline/caba.py
+def build_caba_ipc():
+    return caba.build_ipc(now_iso, write, mes_label, fmt)
+
+
+def build_caba_lineas():
+    return caba.build_lineas(now_iso, write, mes_label, fmt)
+
+
+def build_caba_alquileres():
+    return caba.build_alquileres(now_iso, write, mes_label, fmt)
 
 
 def main():
@@ -685,7 +702,7 @@ def main():
 
     builders = [build_ipc, build_canastas, build_mayoristas, build_icc, build_obra_publica, build_emae,
                 build_ipi_manuf, build_ipi_minero, None, build_trabajo, build_pobreza, build_crianza,
-                build_comex, build_poblacion]
+                build_comex, build_poblacion, build_caba_ipc, build_caba_lineas, build_caba_alquileres]
     heads, errores = {}, {}
     for b in builders:
         if b is None:  # salarios necesita el índice del IPC

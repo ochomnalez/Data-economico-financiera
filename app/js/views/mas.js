@@ -33,6 +33,11 @@ export async function render() {
       ${item("ipi_manufacturero", "industria", I.factory, "Industria", "Índice de producción industrial manufacturero")}
       ${item("ipi_minero", "mineria", I.mine, "Minería, petróleo y gas", "Índice de producción industrial minero")}
     </div>`))}
+    ${section("Ciudad de Buenos Aires", card(`<div class="list">
+      ${item("caba_ipc", "caba", I.prices, "Inflación porteña (IPCBA)", "Sale antes que la del INDEC")}
+      ${item("caba_alquileres", "caba/alquileres", I.home, "Alquileres en la Ciudad", "Precio de 1, 2 y 3 ambientes")}
+      ${item("caba_lineas", "caba/pobreza", I.basket, "Líneas de pobreza porteñas", "Ingreso necesario según el hogar")}
+    </div>`), { sub: "Datos del Instituto de Estadística de la Ciudad (IDECBA)." })}
     ${section("Sociedad", card(`<div class="list">
       ${item("crianza", "crianza", I.child, "Canasta de crianza", "Costo de criar a un chico según su edad")}
       ${item("poblacion", "poblacion", I.people, "Población", "Proyecciones por edad, provincia y departamento")}
@@ -213,6 +218,84 @@ export const crianza = {
       render: () => ({ type: "line", x: P, fmt: (v) => ars(v, { short: true }), yfmt: (v) => n(v / 1000, 0) + "k",
         series: d.tramos.map((t, k) => ({ name: t.name, values: t.tot, color: `var(--s${k + 1})` })) }) });
     return section("Canasta de crianza", head + ch) + `<div class="foot">${updatedNote(P[L])} · Fuente: INDEC</div>`;
+  },
+};
+
+// ───────── Ciudad de Buenos Aires (IDECBA) ─────────
+export const caba = {
+  title: "Ciudad de Buenos Aires", back: "#/mas",
+  async render() {
+    const [c, lin, alq, ipc] = await loadMany("caba_ipc", "caba_lineas", "caba_alquileres", "ipc");
+    const P = c.p, L = P.length - 1;
+    const dic = P.lastIndexOf(`${+P[L].slice(0, 4) - 1}-12`);
+    const acum = dic >= 0 ? (c.idx[L] / c.idx[dic] - 1) * 100 : null;
+    const ipcVia = Object.fromEntries(ipc.p.map((p, i) => [p, ipc.general.via[i]]));
+    const ipcVm = Object.fromEntries(ipc.p.map((p, i) => [p, ipc.general.vm[i]]));
+    const nac = ipcVm[P[L]];
+    const head = card(stats([
+      { label: "Mensual", value: n(c.vm[L]), unit: "%", foot: `antes ${pf(c.vm[L - 1])}` },
+      { label: "Interanual", value: n(c.via[L]), unit: "%", foot: `antes ${pf(c.via[L - 1])}` },
+      { label: `Acumulada ${P[L].slice(0, 4)}`, value: n(acum), unit: "%", foot: "desde diciembre" },
+    ]) + `<p class="small muted" style="margin:12px 0 0">${nac !== undefined && nac !== null
+      ? `El INDEC midió ${pf(nac)} para el total del país en ${period(P[L])}.`
+      : `El INDEC todavía no publicó la inflación nacional de ${period(P[L], { long: true })}: este dato llega antes y sirve de anticipo.`}</p>`,
+    { concept: "caba_ipc", title: `Inflación porteña · ${period(P[L], { long: true })}`, sub: "Índice de Precios al Consumidor de la Ciudad (IPCBA)", source: "IDECBA" });
+    const evol = chartCard({ concept: "variaciones", title: "Evolución de la inflación porteña", source: "IDECBA",
+      sub: "Mensual: contra el mes anterior · Interanual: contra el mismo mes del año pasado",
+      modes: [["Mensual", "m"], ["Interanual", "a"]], range: 24,
+      render: (m) => (m === "m" ? { type: "col", x: P, values: c.vm, name: "Inflación mensual (IPCBA)", fmt: pf }
+        : { type: "line", x: P, fmt: pf, series: [{ name: "IPCBA · Ciudad", values: c.via, color: "var(--s1)" },
+          { name: "IPC INDEC · total país", values: P.map((p) => ipcVia[p] ?? null), color: "var(--s2)" }] }) });
+    const K = c.categorias;
+    const comp = chartCard({ concept: "caba_ipc", title: "Estacionales, regulados y resto", sub: "Variación mensual. “Resto IPCBA” es la inflación de fondo (como la núcleo)", source: "IDECBA", range: 24,
+      render: () => ({ type: "line", x: P, fmt: pf, series: [
+        { name: "Resto IPCBA (de fondo)", values: K.resto.vm, color: "var(--s1)" },
+        { name: "Regulados", values: K.regulados.vm, color: "var(--s2)" },
+        { name: "Estacionales", values: K.estacionales.vm, color: "var(--s3)" }] }) }) +
+      card(stats([
+        { label: "Resto IPCBA", value: n(K.resto.vm[L]), unit: "%", foot: `${pf(K.resto.via[L])} interanual` },
+        { label: "Bienes", value: n(K.bienes.vm[L]), unit: "%", foot: `${pf(K.bienes.via[L])} interanual` },
+        { label: "Servicios", value: n(K.servicios.vm[L]), unit: "%", foot: `${pf(K.servicios.via[L])} interanual` },
+      ]));
+    const IL = c.pi.length - 1;
+    const inc = card(bars(c.divisiones.map((d) => ({ label: d.name, value: d.inc[IL] })).sort((a, b) => b.value - a.value),
+      { fmt: (v) => n(v, 2) + " p.p.", color: "var(--s1)" }),
+    { concept: "caba_incidencia", title: "¿Qué rubros empujaron la inflación?", sub: `Puntos que aportó cada rubro a la inflación de ${period(c.pi[IL], { long: true })} (${pf(c.vm[L])})`, source: "IDECBA" });
+
+    // Alquileres
+    const AP = alq.p, AL = AP.length - 1;
+    const A = alq.ambientes;
+    const prov = alq.provisorio.includes(AP[AL]) ? " (provisorio)" : "";
+    const alqHead = card(stats(A.map((a) => ({ label: a.name, value: ars(a.v[AL], { short: true }), foot: `${n(a.via[AL], 1, { sign: true })}% interanual` }))) +
+      `<p class="small muted" style="margin:12px 0 0">Precio promedio publicado por mes, sin expensas, para ${A.map((a) => `${a.name.split(" ")[0]} amb. = ${a.m2} m²`).join(" · ")}.</p>`,
+    { concept: "alquileres", title: `Alquileres · ${period(AP[AL], { long: true })}${prov}`, sub: "Departamentos usados y a estrenar en la Ciudad", source: "IDECBA sobre avisos de Argenprop" });
+    const caVia = Object.fromEntries(P.map((p, i) => [p, c.via[i]]));
+    const alqChart = chartCard({ concept: "alquileres", title: "Evolución de los alquileres", source: "IDECBA", range: 36,
+      sub: "Precio: pesos por mes · Vs. inflación: suba interanual del alquiler contra el IPCBA",
+      modes: [["Precio", "v"], ["Vs. inflación", "i"]],
+      render: (m) => (m === "v"
+        ? { type: "line", x: AP, fmt: (v) => ars(v, { short: true }), yfmt: (v) => n(v / 1000, 0) + "k",
+          series: A.map((a, k) => ({ name: a.name, values: a.v, color: `var(--s${k + 1})` })) }
+        : { type: "line", x: AP, fmt: pf, series: [
+          { name: "Alquiler 2 ambientes", values: A[1].via, color: "var(--s7)" },
+          { name: "Inflación porteña (IPCBA)", values: AP.map((p) => caVia[p] ?? null), color: "var(--s8)" }] }) });
+
+    // Líneas de pobreza
+    const LP = lin.p, LL = LP.length - 1;
+    const rows = lin.hogares.map((h, k) => `<tr class="${k === 0 ? "hl" : ""}"><td><b>Hogar ${k + 1}</b><div class="small muted">${esc(h.desc)}</div></td>
+      <td class="r">${ars(h.li[LL])}</td><td class="r">${ars(h.lp[LL])}</td></tr>`).join("");
+    const linTbl = card(`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Tipo de hogar</th><th class="r">Indigencia<div class="small muted" style="font-weight:400">alimentos</div></th><th class="r">Pobreza<div class="small muted" style="font-weight:400">alimentos + otros</div></th></tr></thead><tbody>${rows}</tbody></table></div>`,
+      { concept: "caba_lineas", title: `Ingreso necesario por mes · ${period(LP[LL], { long: true })}`, sub: "Para no ser indigente o pobre en la Ciudad", source: "IDECBA" });
+    const linChart = chartCard({ concept: "caba_lineas", title: "Línea de pobreza vs. inflación", sub: "Variación interanual", source: "IDECBA", range: 36,
+      render: () => ({ type: "line", x: LP, fmt: pf, series: [
+        { name: "Línea de pobreza · hogar 1", values: lin.hogares[0].lp_via, color: "var(--s4)" },
+        { name: "Inflación porteña (IPCBA)", values: LP.map((p) => caVia[p] ?? null), color: "var(--s1)" }] }) });
+
+    return `<p class="section-sub" style="margin-top:12px">Datos del Instituto de Estadística y Censos de la Ciudad de Buenos Aires (IDECBA), distinto del INDEC.</p>` +
+      section("Inflación porteña", head + evol) + section("Qué la empuja", comp + inc) +
+      section("Alquileres", alqHead + alqChart, { idAttr: "alquileres" }) +
+      section("Pobreza en la Ciudad", linTbl + linChart, { idAttr: "pobreza-caba" }) +
+      `<div class="foot">${updatedNote(P[L])} · Fuente: IDECBA (estadisticaciudad.gob.ar)</div>`;
   },
 };
 

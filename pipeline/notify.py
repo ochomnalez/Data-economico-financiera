@@ -37,7 +37,7 @@ def payload(items: list[dict]) -> dict:
         it = items[0]
         return {"title": it["titulo"], "body": it["texto"], "url": it.get("ruta", "#/"), "tag": it["id"]}
     titles = ", ".join(i["titulo"].split(" de ")[0].split(" — ")[0] for i in items[:4])
-    return {"title": f"El INDEC publicó {len(items)} datos nuevos",
+    return {"title": f"Hay {len(items)} datos nuevos",
             "body": titles + ("…" if len(items) > 4 else "."), "url": "#/novedades", "tag": "varios"}
 
 

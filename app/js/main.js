@@ -36,6 +36,9 @@ const ROUTES = {
   "mas/mineria": { v: mas.mineria, tab: "mas" },
   "mas/crianza": { v: mas.crianza, tab: "mas" },
   "mas/poblacion": { v: mas.poblacion, tab: "mas" },
+  "mas/caba": { v: mas.caba, tab: "mas" },
+  "mas/caba/alquileres": { v: mas.caba, tab: "mas", anchor: "alquileres" },
+  "mas/caba/pobreza": { v: mas.caba, tab: "mas", anchor: "pobreza-caba" },
   ajustes: { v: ajustes, tab: "mas" },
   acerca: { v: acerca, tab: "mas" },
 };

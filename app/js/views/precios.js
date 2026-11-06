@@ -121,6 +121,7 @@ export async function render() {
     ${section("Canastas básicas", canHead + canChart + canHog, { idAttr: "canastas" })}
     ${section("Dólar", card(`<div id="${fxId}"><div class="skeleton" style="height:180px"></div></div>`, { concept: "dolar", title: "Cotizaciones de hoy" }) + dolChart, { idAttr: "dolar", sub: "Fuente externa al INDEC, para tener el panorama completo." })}
     ${section("Más sobre precios", card(`<div class="list">
+      <a class="list-item" href="#/mas/caba"><div class="ico">${I.prices}</div><div><div class="t">Inflación porteña (IPCBA)</div><div class="d">La mide la Ciudad y sale antes que la del INDEC</div></div><div class="v">→</div></a>
       <a class="list-item" href="#/mas/mayoristas"><div class="ico">${I.wholesale}</div><div><div class="t">Precios mayoristas</div><div class="d">IPIM, IPIB e IPP: suelen anticipar al IPC</div></div><div class="v">→</div></a>
       <a class="list-item" href="#/mas/construccion"><div class="ico">${I.crane}</div><div><div class="t">Costo de la construcción</div><div class="d">Materiales, mano de obra y gastos generales</div></div><div class="v">→</div></a>
     </div>`))}
