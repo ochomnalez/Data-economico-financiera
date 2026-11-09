@@ -43,6 +43,7 @@ export async function render() {
       ${item("poblacion", "poblacion", I.people, "Población", "Proyecciones por edad, provincia y departamento")}
     </div>`))}
     ${section("App", card(`<div class="list">
+      <a class="list-item" href="#/calendario"><div class="ico">${I.calendar}</div><div><div class="t">Calendario de publicaciones</div><div class="d">Cuándo sale cada dato del INDEC y la Ciudad</div></div><div class="v">→</div></a>
       <a class="list-item" href="#/ajustes"><div class="ico">${I.bell}</div><div><div class="t">Notificaciones</div><div class="d">Recibí un aviso cuando el INDEC publica</div></div><div class="v">→</div></a>
       <a class="list-item" href="#/acerca"><div class="ico">${I.info}</div><div><div class="t">Fuentes y metodología</div><div class="d">De dónde salen los datos y cómo se calculan</div></div><div class="v">→</div></a>
     </div>`))}`;

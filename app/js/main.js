@@ -7,6 +7,7 @@ import * as actividad from "./views/actividad.js";
 import * as ingresos from "./views/ingresos.js";
 import * as mas from "./views/mas.js";
 import { acerca, ajustes, novedades } from "./views/ajustes.js";
+import { calendario } from "./views/calendario.js";
 
 // Tema elegido por el usuario
 try { const t = localStorage.getItem("pe:theme"); if (t && t !== "auto") document.documentElement.dataset.theme = t; } catch { /* */ }
@@ -20,6 +21,7 @@ const TABS = [
 const ROUTES = {
   "": { v: home, tab: "" },
   novedades: { v: novedades, tab: "" },
+  calendario: { v: calendario, tab: "" },
   precios: { v: precios, tab: "precios" },
   "precios/canastas": { v: precios, tab: "precios", anchor: "canastas" },
   "precios/dolar": { v: precios, tab: "precios", anchor: "dolar" },
@@ -61,6 +63,7 @@ function header(route, view) {
     : `<button class="back" aria-label="Volver" onclick="history.length > 1 ? history.back() : location.hash='${view.back}'">${I.back}</button>`;
   const eyebrow = route === "" ? today : isRoot ? "Datos del INDEC" : "";
   $top.innerHTML = `<div class="top-row">${left}<div class="top-title">${eyebrow ? `<div class="eyebrow">${esc(eyebrow)}</div>` : ""}<h1>${esc(view.title)}</h1></div>
+    <a class="icon-btn" href="#/calendario" aria-label="Calendario de publicaciones">${I.calendar.replace("<svg", '<svg style="width:20px;height:20px"')}</a>
     <a class="icon-btn" href="#/novedades" aria-label="Publicaciones">${I.bell.replace("<svg", '<svg style="width:20px;height:20px"')}<span class="dot" hidden id="nov-dot"></span></a></div>`;
   markUnread();
 }

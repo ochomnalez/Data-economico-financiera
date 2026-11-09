@@ -23,6 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from indec import get, get_all  # noqa: E402
 import caba  # noqa: E402
+import calendario  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "app" / "data"
@@ -730,6 +731,12 @@ def main():
         print("✓ dólar")
     except Exception as e:
         errores["dolar"] = str(e)
+    try:
+        n = calendario.build(OUT, now_iso)
+        print(f"✓ calendario ({n} publicaciones)")
+    except Exception as e:
+        errores["calendario"] = str(e)
+        traceback.print_exc()
 
     # Novedades: tablas cuyo último período cambió
     nov_path = OUT / "novedades.json"
