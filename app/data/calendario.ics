@@ -10,7 +10,7 @@ X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:indec-balanza-de-pagos-posicion-de-inversion-internacional-y-deuda-ext
  erna-segundo-trimestre-de-2026-2026-09-29t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20260929T190000Z
 DTEND:20260929T193000Z
 SUMMARY:INDEC · Balanza de pagos\, posición de inversión internacional 
@@ -22,7 +22,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  agosto-de-2026-2026-10-07t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261007T190000Z
 DTEND:20261007T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -34,7 +34,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-ipcba-indice-de-precios-al-consumidor-septiembre-de-2026-2026-1
  0-08t11-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261008T140000Z
 DTEND:20261008T143000Z
 SUMMARY:Ciudad · IPCBA. Índice de Precios al Consumidor (Septiembre de 2
@@ -46,7 +46,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-lineas-de-pobreza-y-canastas-de-consumo-para-la-ciudad-de-bueno
  s-aires-septiembre-de-2026-2026-10-08t13-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261008T160000Z
 DTEND:20261008T163000Z
 SUMMARY:Ciudad · Líneas de pobreza y Canastas de consumo para la Ciudad 
@@ -58,7 +58,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-agosto-de-2026
  -2026-10-08t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261008T190000Z
 DTEND:20261008T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Ag
@@ -70,7 +70,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-septiembr
  e-de-2026-2026-10-13t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261013T190000Z
 DTEND:20261013T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -82,7 +82,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-septiembre-de-2026-2026@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261013T190000Z
 DTEND:20261013T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -94,7 +94,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-septiembre-de-2026
  -2026-10-16t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261016T190000Z
 DTEND:20261016T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Septiem
@@ -106,7 +106,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-septiembre-de-2026-2026-
  10-16t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261016T190000Z
 DTEND:20261016T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Septiembre d
@@ -118,7 +118,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-septiembre-de-2026@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261016T190000Z
 DTEND:20261016T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -130,7 +130,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-septiembre-de-2026-20
  26-10-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261019T190000Z
 DTEND:20261019T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Septiembre
@@ -142,7 +142,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-agosto-de-2026-202
  6-10-21t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261021T190000Z
 DTEND:20261021T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Agosto 
@@ -154,7 +154,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-agosto-de-2026-2026-10-21t16-00@pulso-economi
  co
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261021T190000Z
 DTEND:20261021T193000Z
 SUMMARY:INDEC · Índice de salarios (Agosto de 2026)
@@ -165,7 +165,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-ipcba-indice-de-precios-al-consumidor-octubre-de-2026-2026-11-0
  6t11-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261106T140000Z
 DTEND:20261106T143000Z
 SUMMARY:Ciudad · IPCBA. Índice de Precios al Consumidor (Octubre de 2026
@@ -177,7 +177,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-lineas-de-pobreza-y-canastas-de-consumo-para-la-ciudad-de-bueno
  s-aires-octubre-de-2026-2026-11-06t13-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261106T160000Z
 DTEND:20261106T163000Z
 SUMMARY:Ciudad · Líneas de pobreza y Canastas de consumo para la Ciudad 
@@ -189,7 +189,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  septiembre-de-2026-2026-11-06t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261106T190000Z
 DTEND:20261106T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -201,7 +201,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-septiembre-de-
  2026-2026-11-06t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261106T190000Z
 DTEND:20261106T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Se
@@ -213,7 +213,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-dinamica-del-mercado-de-alquiler-de-departamentos-3er-trimestre
  -de-2026-2026-11-12t11-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261112T140000Z
 DTEND:20261112T143000Z
 SUMMARY:Ciudad · Dinámica del mercado de alquiler de departamentos (3er.
@@ -225,7 +225,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-octubre-d
  e-2026-2026-11-12t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261112T190000Z
 DTEND:20261112T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -236,7 +236,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-octubre-de-2026-2026-11@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261112T190000Z
 DTEND:20261112T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -247,7 +247,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-septiembre-de-2026-2026-11-13t16-00@pulso-eco
  nomico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261113T190000Z
 DTEND:20261113T193000Z
 SUMMARY:INDEC · Índice de salarios (Septiembre de 2026)
@@ -257,7 +257,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-octubre-de-2026-20@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261116T190000Z
 DTEND:20261116T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -268,7 +268,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-octubre-de-2026-20
  26-11-17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261117T190000Z
 DTEND:20261117T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Octubre
@@ -279,7 +279,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-octubre-de-2026-2026-11-
  17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261117T190000Z
 DTEND:20261117T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Octubre de 2
@@ -290,7 +290,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-octubre-de-2026-2026-
  11-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261119T190000Z
 DTEND:20261119T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Octubre de
@@ -301,7 +301,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-septiembre-de-2026
  -2026-11-24t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261124T190000Z
 DTEND:20261124T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Septiem
@@ -312,7 +312,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  octubre-de-2026-2026-12-09t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261209T190000Z
 DTEND:20261209T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -323,7 +323,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-octubre-de-202
  6-2026-12-09t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261209T190000Z
 DTEND:20261209T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Oc
@@ -334,7 +334,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-ipcba-indice-de-precios-al-consumidor-noviembre-de-2026-2026-12
  -10t11-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261210T140000Z
 DTEND:20261210T143000Z
 SUMMARY:Ciudad · IPCBA. Índice de Precios al Consumidor (Noviembre de 20
@@ -346,7 +346,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ciudad-lineas-de-pobreza-y-canastas-de-consumo-para-la-ciudad-de-bueno
  s-aires-noviembre-de-2026-2026-12-10t13-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261210T160000Z
 DTEND:20261210T163000Z
 SUMMARY:Ciudad · Líneas de pobreza y Canastas de consumo para la Ciudad 
@@ -358,7 +358,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-noviembre
  -de-2026-2026-12-15t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261215T190000Z
 DTEND:20261215T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -369,7 +369,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-noviembre-de-2026-2026-@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261215T190000Z
 DTEND:20261215T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -380,7 +380,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-octubre-de-2026-2026-12-16t16-00@pulso-econom
  ico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261216T190000Z
 DTEND:20261216T193000Z
 SUMMARY:INDEC · Índice de salarios (Octubre de 2026)
@@ -390,7 +390,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-informe-de-avance-del-nivel-de-actividad-tercer-trimestre-de-202
  6-2026-12-16t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261216T190000Z
 DTEND:20261216T193000Z
 SUMMARY:INDEC · Informe de avance del nivel de actividad (Tercer trimestr
@@ -401,7 +401,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-noviembre-de-2026-
  2026-12-17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261217T190000Z
 DTEND:20261217T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Noviemb
@@ -412,7 +412,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-noviembre-de-2026-2026-1
  2-17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261217T190000Z
 DTEND:20261217T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Noviembre de
@@ -423,7 +423,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-noviembre-de-2026-@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261217T190000Z
 DTEND:20261217T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -434,7 +434,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-mercado-de-trabajo-tasas-e-indicadores-socioeconomicos-tercer-tr
  imestre-de-2026-2026-12-18t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261218T190000Z
 DTEND:20261218T193000Z
 SUMMARY:INDEC · Mercado de trabajo. Tasas e indicadores socioeconómicos 
@@ -445,7 +445,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-noviembre-de-2026-202
  6-12-18t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261218T190000Z
 DTEND:20261218T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Noviembre 
@@ -456,7 +456,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-octubre-de-2026-20
  26-12-21t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261221T190000Z
 DTEND:20261221T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Octubre
@@ -467,7 +467,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-balanza-de-pagos-posicion-de-inversion-internacional-y-deuda-ext
  erna-tercer-trimestre-de-2026-2026-12-22t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20261222T190000Z
 DTEND:20261222T193000Z
 SUMMARY:INDEC · Balanza de pagos\, posición de inversión internacional 
@@ -478,7 +478,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-noviembre-de-2
  026-2027-01-07t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270107T190000Z
 DTEND:20270107T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (No
@@ -489,7 +489,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  noviembre-de-2026-2027-01-08t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270108T190000Z
 DTEND:20270108T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -500,7 +500,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-diciembre
  -de-2026-2027-01-14t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270114T190000Z
 DTEND:20270114T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -511,7 +511,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-diciembre-de-2026-2027-@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270114T190000Z
 DTEND:20270114T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -522,7 +522,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-diciembre-de-2026-@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270118T190000Z
 DTEND:20270118T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -533,7 +533,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-diciembre-de-2026-
  2027-01-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270119T190000Z
 DTEND:20270119T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Diciemb
@@ -544,7 +544,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-diciembre-de-2026-2027-0
  1-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270119T190000Z
 DTEND:20270119T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Diciembre de
@@ -555,7 +555,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-noviembre-de-2026-2027-01-20t16-00@pulso-econ
  omico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270120T190000Z
 DTEND:20270120T193000Z
 SUMMARY:INDEC · Índice de salarios (Noviembre de 2026)
@@ -565,7 +565,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-diciembre-de-2026-202
  7-01-20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270120T190000Z
 DTEND:20270120T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Diciembre 
@@ -576,7 +576,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-noviembre-de-2026-
  2027-01-21t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270121T190000Z
 DTEND:20270121T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Noviemb
@@ -587,7 +587,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  diciembre-de-2026-2027-02-05t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270205T190000Z
 DTEND:20270205T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -598,7 +598,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-diciembre-de-2
  026-2027-02-10t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270210T190000Z
 DTEND:20270210T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Di
@@ -609,7 +609,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-enero-de-
  2027-2027-02-12t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270212T190000Z
 DTEND:20270212T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -620,7 +620,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-enero-de-2027-2027-02-1@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270212T190000Z
 DTEND:20270212T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -631,7 +631,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-enero-de-2027-2027@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270216T190000Z
 DTEND:20270216T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -642,7 +642,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-diciembre-de-2026-2027-02-17t16-00@pulso-econ
  omico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270217T190000Z
 DTEND:20270217T193000Z
 SUMMARY:INDEC · Índice de salarios (Diciembre de 2026)
@@ -652,7 +652,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-enero-de-2027-2027
  -02-18t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270218T190000Z
 DTEND:20270218T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Enero d
@@ -663,7 +663,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-enero-de-2027-2027-02-18
  t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270218T190000Z
 DTEND:20270218T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Enero de 202
@@ -674,7 +674,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-enero-de-2027-2027-02
  -19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270219T190000Z
 DTEND:20270219T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Enero de 2
@@ -685,7 +685,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-diciembre-de-2026-
  2027-02-23t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270223T190000Z
 DTEND:20270223T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Diciemb
@@ -696,7 +696,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-enero-de-2027-
  2027-03-05t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270305T190000Z
 DTEND:20270305T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (En
@@ -707,7 +707,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  enero-de-2027-2027-03-09t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270309T190000Z
 DTEND:20270309T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -718,7 +718,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-febrero-d
  e-2027-2027-03-12t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270312T190000Z
 DTEND:20270312T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -729,7 +729,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-febrero-de-2027-2027-03@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270312T190000Z
 DTEND:20270312T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -740,7 +740,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-enero-de-2027-2027-03-16t16-00@pulso-economic
  o
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270316T190000Z
 DTEND:20270316T193000Z
 SUMMARY:INDEC · Índice de salarios (Enero de 2027)
@@ -750,7 +750,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-febrero-de-2027-20@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270316T190000Z
 DTEND:20270316T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -761,7 +761,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-febrero-de-2027-20
  27-03-17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270317T190000Z
 DTEND:20270317T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Febrero
@@ -772,7 +772,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-febrero-de-2027-2027-03-
  17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270317T190000Z
 DTEND:20270317T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Febrero de 2
@@ -783,7 +783,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-mercado-de-trabajo-tasas-e-indicadores-socioeconomicos-cuarto-tr
  imestre-de-2026-2027-03-18t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270318T190000Z
 DTEND:20270318T193000Z
 SUMMARY:INDEC · Mercado de trabajo. Tasas e indicadores socioeconómicos 
@@ -794,7 +794,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-informe-de-avance-del-nivel-de-actividad-cuarto-trimestre-de-202
  6-2027-03-18t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270318T190000Z
 DTEND:20270318T193000Z
 SUMMARY:INDEC · Informe de avance del nivel de actividad (Cuarto trimestr
@@ -805,7 +805,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-febrero-de-2027-2027-
  03-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270319T190000Z
 DTEND:20270319T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Febrero de
@@ -816,7 +816,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-enero-de-2027-2027
  -03-23t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270323T190000Z
 DTEND:20270323T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Enero d
@@ -827,7 +827,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-balanza-de-pagos-posicion-de-inversion-internacional-y-deuda-ext
  erna-cuarto-trimestre-de-2026-2027-03-23t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270323T190000Z
 DTEND:20270323T193000Z
 SUMMARY:INDEC · Balanza de pagos\, posición de inversión internacional 
@@ -838,7 +838,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-incidencia-de-la-pobreza-y-la-indigencia-en-31-aglomerados-urban
  os-segundo-semestre-de-2026-2027-03-31t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270331T190000Z
 DTEND:20270331T193000Z
 SUMMARY:INDEC · Incidencia de la pobreza y la indigencia en 31 aglomerado
@@ -849,7 +849,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-febrero-de-202
  7-2027-04-07t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270407T190000Z
 DTEND:20270407T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Fe
@@ -860,7 +860,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  febrero-de-2027-2027-04-09t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270409T190000Z
 DTEND:20270409T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -871,7 +871,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-marzo-de-
  2027-2027-04-15t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270415T190000Z
 DTEND:20270415T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -882,7 +882,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-marzo-de-2027-2027-04-1@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270415T190000Z
 DTEND:20270415T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -893,7 +893,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-febrero-de-2027-2027-04-16t16-00@pulso-econom
  ico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270416T190000Z
 DTEND:20270416T193000Z
 SUMMARY:INDEC · Índice de salarios (Febrero de 2027)
@@ -903,7 +903,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-marzo-de-2027-2027
  -04-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270419T190000Z
 DTEND:20270419T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Marzo d
@@ -914,7 +914,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-marzo-de-2027-2027-04-19
  t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270419T190000Z
 DTEND:20270419T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Marzo de 202
@@ -925,7 +925,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-marzo-de-2027-2027@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270419T190000Z
 DTEND:20270419T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -936,7 +936,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-marzo-de-2027-2027-04
  -20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270420T190000Z
 DTEND:20270420T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Marzo de 2
@@ -947,7 +947,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-febrero-de-2027-20
  27-04-22t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270422T190000Z
 DTEND:20270422T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Febrero
@@ -958,7 +958,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-marzo-de-2027-
  2027-05-06t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270506T190000Z
 DTEND:20270506T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Ma
@@ -969,7 +969,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  marzo-de-2027-2027-05-07t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270507T190000Z
 DTEND:20270507T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -980,7 +980,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-abril-de-
  2027-2027-05-13t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270513T190000Z
 DTEND:20270513T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -991,7 +991,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-abril-de-2027-2027-05-1@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270513T190000Z
 DTEND:20270513T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -1002,7 +1002,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-abril-de-2027-2027@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270517T190000Z
 DTEND:20270517T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -1013,7 +1013,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-marzo-de-2027-2027-05-18t16-00@pulso-economic
  o
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270518T190000Z
 DTEND:20270518T193000Z
 SUMMARY:INDEC · Índice de salarios (Marzo de 2027)
@@ -1023,7 +1023,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-abril-de-2027-2027
  -05-18t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270518T190000Z
 DTEND:20270518T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Abril d
@@ -1034,7 +1034,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-abril-de-2027-2027-05-18
  t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270518T190000Z
 DTEND:20270518T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Abril de 202
@@ -1045,7 +1045,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-abril-de-2027-2027-05
  -19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270519T190000Z
 DTEND:20270519T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Abril de 2
@@ -1056,7 +1056,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-marzo-de-2027-2027
  -05-20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270520T190000Z
 DTEND:20270520T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Marzo d
@@ -1067,7 +1067,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-abril-de-2027-
  2027-06-08t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270608T190000Z
 DTEND:20270608T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI Minero) (Ab
@@ -1078,7 +1078,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  abril-de-2027-2027-06-09t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270609T190000Z
 DTEND:20270609T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -1089,7 +1089,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-mayo-de-2
  027-2027-06-11t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270611T190000Z
 DTEND:20270611T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -1100,7 +1100,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-mayo-de-2027-2027-06-11@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270611T190000Z
 DTEND:20270611T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -1111,7 +1111,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-mayo-de-2027-2027-@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270615T190000Z
 DTEND:20270615T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -1122,7 +1122,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-mayo-de-2027-2027-
  06-16t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270616T190000Z
 DTEND:20270616T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Mayo de
@@ -1133,7 +1133,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-mayo-de-2027-2027-06-16t
  16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270616T190000Z
 DTEND:20270616T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Mayo de 2027
@@ -1144,7 +1144,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-abril-de-2027-2027-06-18t16-00@pulso-economic
  o
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270618T190000Z
 DTEND:20270618T193000Z
 SUMMARY:INDEC · Índice de salarios (Abril de 2027)
@@ -1154,7 +1154,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-mayo-de-2027-2027-06-
  22t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270622T190000Z
 DTEND:20270622T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Mayo de 20
@@ -1165,7 +1165,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-informe-de-avance-del-nivel-de-actividad-primer-trimestre-de-202
  7-2027-06-22t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270622T190000Z
 DTEND:20270622T193000Z
 SUMMARY:INDEC · Informe de avance del nivel de actividad (Primer trimestr
@@ -1176,7 +1176,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-mercado-de-trabajo-tasas-e-indicadores-socioeconomicos-primer-tr
  imestre-de-2027-2027-06-24t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270624T190000Z
 DTEND:20270624T193000Z
 SUMMARY:INDEC · Mercado de trabajo. Tasas e indicadores socioeconómicos 
@@ -1187,7 +1187,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-balanza-de-pagos-posicion-de-inversion-internacional-y-deuda-ext
  erna-primer-trimestre-de-2027-2027-06-25t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270625T190000Z
 DTEND:20270625T193000Z
 SUMMARY:INDEC · Balanza de pagos\, posición de inversión internacional 
@@ -1198,7 +1198,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-abril-de-2027-2027
  -06-29t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270629T190000Z
 DTEND:20270629T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Abril d
@@ -1209,7 +1209,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-mayo-de-2027-2
  027-07-07t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270707T190000Z
 DTEND:20270707T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Ma
@@ -1220,7 +1220,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  mayo-de-2027-2027-07-08t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270708T190000Z
 DTEND:20270708T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -1231,7 +1231,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-junio-de-
  2027-2027-07-14t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270714T190000Z
 DTEND:20270714T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -1242,7 +1242,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-junio-de-2027-2027-07-1@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270714T190000Z
 DTEND:20270714T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -1253,7 +1253,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-junio-de-2027-2027@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270716T190000Z
 DTEND:20270716T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -1264,7 +1264,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-junio-de-2027-2027
  -07-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270719T190000Z
 DTEND:20270719T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Junio d
@@ -1275,7 +1275,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-junio-de-2027-2027-07-19
  t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270719T190000Z
 DTEND:20270719T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Junio de 202
@@ -1285,7 +1285,7 @@ DESCRIPTION:Publicación oficial. Ver en la app Pulso Económico.
 END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-mayo-de-2027-2027-07-20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270720T190000Z
 DTEND:20270720T193000Z
 SUMMARY:INDEC · Índice de salarios (Mayo de 2027)
@@ -1295,7 +1295,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-junio-de-2027-2027-07
  -20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270720T190000Z
 DTEND:20270720T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Junio de 2
@@ -1306,7 +1306,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-mayo-de-2027-2027-
  07-21t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270721T190000Z
 DTEND:20270721T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Mayo de
@@ -1317,7 +1317,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-junio-de-2027-
  2027-08-05t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270805T190000Z
 DTEND:20270805T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Ju
@@ -1328,7 +1328,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  junio-de-2027-2027-08-06t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270806T190000Z
 DTEND:20270806T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -1339,7 +1339,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-julio-de-
  2027-2027-08-12t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270812T190000Z
 DTEND:20270812T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -1350,7 +1350,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-julio-de-2027-2027-08-1@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270812T190000Z
 DTEND:20270812T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -1361,7 +1361,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-julio-de-2027-2027@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270813T190000Z
 DTEND:20270813T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -1372,7 +1372,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-junio-de-2027-2027-08-18t16-00@pulso-economic
  o
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270818T190000Z
 DTEND:20270818T193000Z
 SUMMARY:INDEC · Índice de salarios (Junio de 2027)
@@ -1382,7 +1382,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-julio-de-2027-2027
  -08-19t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270819T190000Z
 DTEND:20270819T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Julio d
@@ -1393,7 +1393,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-julio-de-2027-2027-08-19
  t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270819T190000Z
 DTEND:20270819T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Julio de 202
@@ -1404,7 +1404,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-junio-de-2027-2027
  -08-20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270820T190000Z
 DTEND:20270820T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Junio d
@@ -1415,7 +1415,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-julio-de-2027-2027-08
  -20t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270820T190000Z
 DTEND:20270820T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Julio de 2
@@ -1426,7 +1426,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-minero-ipi-minero-julio-de-2027-
  2027-09-08t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270908T190000Z
 DTEND:20270908T193000Z
 SUMMARY:INDEC · Índice de producción industrial minero (IPI minero) (Ju
@@ -1437,7 +1437,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-produccion-industrial-manufacturero-ipi-manufacturero-
  julio-de-2027-2027-09-09t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270909T190000Z
 DTEND:20270909T193000Z
 SUMMARY:INDEC · Índice de producción industrial manufacturero (IPI manu
@@ -1448,7 +1448,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-precios-al-consumidor-ipc-cobertura-nacional-agosto-de
  -2027-2027-09-14t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270914T190000Z
 DTEND:20270914T193000Z
 SUMMARY:INDEC · Índice de precios al consumidor (IPC). Cobertura naciona
@@ -1459,7 +1459,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-basica-alimentaria-cba-y-de-l
  a-canasta-basica-total-cbt-agosto-de-2027-2027-09-@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270914T190000Z
 DTEND:20270914T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta básica alimentaria (
@@ -1470,7 +1470,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-de-salarios-julio-de-2027-2027-09-16t16-00@pulso-economic
  o
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270916T190000Z
 DTEND:20270916T193000Z
 SUMMARY:INDEC · Índice de salarios (Julio de 2027)
@@ -1480,7 +1480,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-valorizacion-mensual-de-la-canasta-de-crianza-de-la-primera-infa
  ncia-la-ninez-y-la-adolescencia-agosto-de-2027-202@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270916T190000Z
 DTEND:20270916T193000Z
 SUMMARY:INDEC · Valorización mensual de la canasta de crianza de la prim
@@ -1491,7 +1491,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-informe-de-avance-del-nivel-de-actividad-segundo-trimestre-de-20
  27-2027-09-17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270917T190000Z
 DTEND:20270917T193000Z
 SUMMARY:INDEC · Informe de avance del nivel de actividad (Segundo trimest
@@ -1502,7 +1502,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-sistema-de-indices-de-precios-mayoristas-sipm-agosto-de-2027-202
  7-09-17t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270917T190000Z
 DTEND:20270917T193000Z
 SUMMARY:INDEC · Sistema de índices de precios mayoristas (SIPM) (Agosto 
@@ -1513,7 +1513,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-indice-del-costo-de-la-construccion-icc-agosto-de-2026-2027-09-1
  7t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270917T190000Z
 DTEND:20270917T193000Z
 SUMMARY:INDEC · Índice del costo de la construcción (ICC) (Agosto de 20
@@ -1524,7 +1524,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-mercado-de-trabajo-tasas-e-indicadores-socioeconomicos-segundo-t
  rimestre-de-2027-2027-09-21t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270921T190000Z
 DTEND:20270921T193000Z
 SUMMARY:INDEC · Mercado de trabajo. Tasas e indicadores socioeconómicos 
@@ -1535,7 +1535,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-intercambio-comercial-argentino-ica-bienes-agosto-de-2027-2027-0
  9-21t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270921T190000Z
 DTEND:20270921T193000Z
 SUMMARY:INDEC · Intercambio comercial argentino (ICA). Bienes (Agosto de 
@@ -1546,7 +1546,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-estimador-mensual-de-actividad-economica-emae-julio-de-2027-2027
  -09-24t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270924T190000Z
 DTEND:20270924T193000Z
 SUMMARY:INDEC · Estimador mensual de actividad económica (EMAE) (Julio d
@@ -1557,7 +1557,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-balanza-de-pagos-posicion-de-inversion-internacional-y-deuda-ext
  erna-segundo-trimestre-de-2027-2027-09-24t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270924T190000Z
 DTEND:20270924T193000Z
 SUMMARY:INDEC · Balanza de pagos\, posición de inversión internacional 
@@ -1568,7 +1568,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:indec-incidencia-de-la-pobreza-y-la-indigencia-en-31-aglomerados-urban
  os-primer-semestre-de-2027-2027-09-30t16-00@pulso-economico
-DTSTAMP:20261109T160707Z
+DTSTAMP:20261109T213059Z
 DTSTART:20270930T190000Z
 DTEND:20270930T193000Z
 SUMMARY:INDEC · Incidencia de la pobreza y la indigencia en 31 aglomerado
