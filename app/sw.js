@@ -1,9 +1,9 @@
 // Service worker: app offline + notificaciones push.
-const VERSION = "pe-v6";
+const VERSION = "pe-v7";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
   "js/main.js", "js/ui.js", "js/charts.js", "js/fmt.js", "js/icons.js", "js/push.js", "js/glosario.js",
-  "js/views/home.js", "js/views/precios.js", "js/views/actividad.js", "js/views/ingresos.js", "js/views/mas.js", "js/views/ajustes.js",
+  "js/views/home.js", "js/views/precios.js", "js/views/actividad.js", "js/views/ingresos.js", "js/views/mas.js", "js/views/ajustes.js", "js/views/calendario.js",
   "icons/icon-192.png", "icons/icon-512.png", "icons/badge-96.png",
 ];
 
