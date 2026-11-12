@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-12T02:37:11+00:00",
+ "actualizado": "2026-11-12T19:02:20+00:00",
  "periodos": {
   "ipc": "2026-09",
   "canastas": "2026-09",
@@ -16,7 +16,7 @@
   "comex": "2026-09",
   "poblacion": "2040",
   "caba_ipc": "2026-10",
-  "caba_lineas": "2026-09",
+  "caba_lineas": "2026-10",
   "caba_alquileres": "2026-09"
  },
  "ultimos": {
@@ -159,10 +159,10 @@
   },
   "caba_lineas": {
    "id": "caba_lineas",
-   "periodo": "2026-09",
-   "titulo": "Líneas de pobreza en la Ciudad — septiembre 2026",
-   "texto": "Una pareja con dos hijos, propietaria, necesitó $1.687.299 para no ser pobre en CABA ($925.941 para no ser indigente).",
-   "valor": 1687299.0,
+   "periodo": "2026-10",
+   "titulo": "Líneas de pobreza en la Ciudad — octubre 2026",
+   "texto": "Una pareja con dos hijos, propietaria, necesitó $1.724.966 para no ser pobre en CABA ($949.701 para no ser indigente).",
+   "valor": 1724966.0,
    "unidad": "$",
    "ruta": "#/mas/caba"
   },
@@ -287,7 +287,7 @@
    "seccion": "Ciudad de Buenos Aires",
    "frecuencia": "Mensual",
    "endpoint": "IDECBA · banco de datos",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "caba_alquileres": {
    "nombre": "Alquileres en la Ciudad",

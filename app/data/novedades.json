@@ -1,5 +1,16 @@
 [
  {
+  "id": "caba_lineas",
+  "periodo": "2026-10",
+  "titulo": "Líneas de pobreza en la Ciudad — octubre 2026",
+  "texto": "Una pareja con dos hijos, propietaria, necesitó $1.724.966 para no ser pobre en CABA ($949.701 para no ser indigente).",
+  "valor": 1724966.0,
+  "unidad": "$",
+  "ruta": "#/mas/caba",
+  "fecha": "2026-11-12T19:02:20+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "ipi_manufacturero",
   "periodo": "2026-09",
   "titulo": "Producción industrial de septiembre 2026",
