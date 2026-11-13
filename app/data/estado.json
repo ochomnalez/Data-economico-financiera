@@ -1,8 +1,8 @@
 {
- "actualizado": "2026-11-12T19:02:20+00:00",
+ "actualizado": "2026-11-13T00:20:30+00:00",
  "periodos": {
-  "ipc": "2026-09",
-  "canastas": "2026-09",
+  "ipc": "2026-10",
+  "canastas": "2026-10",
   "mayoristas": "2026-09",
   "icc": "2026-09",
   "obra_publica": "2026-09",
@@ -22,19 +22,19 @@
  "ultimos": {
   "ipc": {
    "id": "ipc",
-   "periodo": "2026-09",
-   "titulo": "Inflación de septiembre 2026",
-   "texto": "1,9% mensual · 33,4% interanual. Respecto del mes anterior (1,7%) subió. La núcleo fue 1,7%.",
-   "valor": 1.9,
+   "periodo": "2026-10",
+   "titulo": "Inflación de octubre 2026",
+   "texto": "2,2% mensual · 33,1% interanual. Respecto del mes anterior (1,9%) subió.",
+   "valor": 2.2,
    "unidad": "%",
    "ruta": "#/precios"
   },
   "canastas": {
    "id": "canastas",
-   "periodo": "2026-09",
-   "titulo": "Canastas básicas de septiembre 2026",
-   "texto": "Una familia tipo necesitó $1.632.505 para no ser pobre (CBT, +1,7% mensual) y $738.690 para no ser indigente (CBA).",
-   "valor": 1632505.0,
+   "periodo": "2026-10",
+   "titulo": "Canastas básicas de octubre 2026",
+   "texto": "Una familia tipo necesitó $1.690.000 para no ser pobre (CBT, +3,5% mensual) y $761.261 para no ser indigente (CBA).",
+   "valor": 1690000.0,
    "unidad": "$",
    "ruta": "#/precios/canastas"
   },
@@ -182,14 +182,14 @@
    "seccion": "Precios",
    "frecuencia": "Mensual",
    "endpoint": "ipc_nacional",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "canastas": {
    "nombre": "Canastas básicas (CBA y CBT)",
    "seccion": "Precios",
    "frecuencia": "Mensual",
    "endpoint": "valorizacion_canastas_cba_cbt",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "emae": {
    "nombre": "Actividad económica (EMAE)",

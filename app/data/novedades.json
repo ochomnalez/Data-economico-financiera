@@ -1,5 +1,27 @@
 [
  {
+  "id": "ipc",
+  "periodo": "2026-10",
+  "titulo": "Inflación de octubre 2026",
+  "texto": "2,2% mensual · 33,1% interanual. Respecto del mes anterior (1,9%) subió.",
+  "valor": 2.2,
+  "unidad": "%",
+  "ruta": "#/precios",
+  "fecha": "2026-11-13T00:20:30+00:00",
+  "nuevo_periodo": true
+ },
+ {
+  "id": "canastas",
+  "periodo": "2026-10",
+  "titulo": "Canastas básicas de octubre 2026",
+  "texto": "Una familia tipo necesitó $1.690.000 para no ser pobre (CBT, +3,5% mensual) y $761.261 para no ser indigente (CBA).",
+  "valor": 1690000.0,
+  "unidad": "$",
+  "ruta": "#/precios/canastas",
+  "fecha": "2026-11-13T00:20:30+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "caba_lineas",
   "periodo": "2026-10",
   "titulo": "Líneas de pobreza en la Ciudad — octubre 2026",
