@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-13T18:37:05+00:00",
+ "actualizado": "2026-11-14T00:22:53+00:00",
  "periodos": {
   "ipc": "2026-10",
   "canastas": "2026-10",
@@ -9,7 +9,7 @@
   "emae": "2026-08",
   "ipi_manufacturero": "2026-09",
   "ipi_minero": "2026-09",
-  "salarios": "2026-08",
+  "salarios": "2026-09",
   "trabajo": "2026-T2",
   "pobreza": "2026-S1",
   "crianza": "2026-09",
@@ -95,10 +95,10 @@
   },
   "salarios": {
    "id": "salarios",
-   "periodo": "2026-08",
-   "titulo": "Salarios de agosto 2026",
-   "texto": "Nivel general 2,7% mensual · 35,6% interanual. Salario real registrado: −2,3% interanual (agosto 2026).",
-   "valor": 2.73,
+   "periodo": "2026-09",
+   "titulo": "Salarios de septiembre 2026",
+   "texto": "Nivel general 1,2% mensual · 34,3% interanual. Salario real registrado: −1,7% interanual (septiembre 2026).",
+   "valor": 1.25,
    "unidad": "%",
    "ruta": "#/ingresos"
   },
@@ -203,7 +203,7 @@
    "seccion": "Ingresos",
    "frecuencia": "Mensual",
    "endpoint": "indice_salarios",
-   "periodo": "2026-08"
+   "periodo": "2026-09"
   },
   "trabajo": {
    "nombre": "Mercado de trabajo (EPH)",

@@ -1,5 +1,16 @@
 [
  {
+  "id": "salarios",
+  "periodo": "2026-09",
+  "titulo": "Salarios de septiembre 2026",
+  "texto": "Nivel general 1,2% mensual · 34,3% interanual. Salario real registrado: −1,7% interanual (septiembre 2026).",
+  "valor": 1.25,
+  "unidad": "%",
+  "ruta": "#/ingresos",
+  "fecha": "2026-11-14T00:22:53+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "ipc",
   "periodo": "2026-10",
   "titulo": "Inflación de octubre 2026",
