@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-15T17:49:47+00:00",
+ "actualizado": "2026-11-16T21:08:14+00:00",
  "periodos": {
   "ipc": "2026-10",
   "canastas": "2026-10",
@@ -12,7 +12,7 @@
   "salarios": "2026-09",
   "trabajo": "2026-T2",
   "pobreza": "2026-S1",
-  "crianza": "2026-09",
+  "crianza": "2026-10",
   "comex": "2026-09",
   "poblacion": "2040",
   "caba_ipc": "2026-10",
@@ -122,10 +122,10 @@
   },
   "crianza": {
    "id": "crianza",
-   "periodo": "2026-09",
-   "titulo": "Canasta de crianza de septiembre 2026",
-   "texto": "Criar a un chico de 6 a 12 años costó $728.850 por mes (bienes, servicios y tiempo de cuidado).",
-   "valor": 728850.0,
+   "periodo": "2026-10",
+   "titulo": "Canasta de crianza de octubre 2026",
+   "texto": "Criar a un chico de 6 a 12 años costó $754.869 por mes (bienes, servicios y tiempo de cuidado).",
+   "valor": 754869.0,
    "unidad": "$",
    "ruta": "#/mas/crianza"
   },
@@ -259,7 +259,7 @@
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "canasta-crianza",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "comex": {
    "nombre": "Comercio exterior",

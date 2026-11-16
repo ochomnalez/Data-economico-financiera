@@ -1,5 +1,16 @@
 [
  {
+  "id": "crianza",
+  "periodo": "2026-10",
+  "titulo": "Canasta de crianza de octubre 2026",
+  "texto": "Criar a un chico de 6 a 12 años costó $754.869 por mes (bienes, servicios y tiempo de cuidado).",
+  "valor": 754869.0,
+  "unidad": "$",
+  "ruta": "#/mas/crianza",
+  "fecha": "2026-11-16T21:08:14+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "salarios",
   "periodo": "2026-09",
   "titulo": "Salarios de septiembre 2026",
