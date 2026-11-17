@@ -1,5 +1,39 @@
 [
  {
+  "id": "mayoristas",
+  "periodo": "2026-10",
+  "titulo": "Precios mayoristas de octubre 2026",
+  "texto": "IPIM 1,6% mensual · 29,8% interanual.",
+  "valor": 1.6,
+  "unidad": "%",
+  "ruta": "#/mas/mayoristas",
+  "fecha": "2026-11-17T19:57:45+00:00",
+  "nuevo_periodo": true
+ },
+ {
+  "id": "icc",
+  "periodo": "2026-10",
+  "titulo": "Costo de la construcción de octubre 2026",
+  "texto": "1,7% mensual · 31,9% interanual (GBA).",
+  "valor": 1.7,
+  "unidad": "%",
+  "ruta": "#/mas/construccion",
+  "fecha": "2026-11-17T19:57:45+00:00",
+  "nuevo_periodo": true
+ },
+ {
+  "id": "obra_publica",
+  "periodo": "2026-10",
+  "titulo": "Índices para obra pública de octubre 2026",
+  "texto": "Se actualizaron los 21 índices del Decreto 1295/2002.",
+  "valor": null,
+  "unidad": "",
+  "ruta": "#/mas/obra-publica",
+  "silencioso": true,
+  "fecha": "2026-11-17T19:57:45+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "crianza",
   "periodo": "2026-10",
   "titulo": "Canasta de crianza de octubre 2026",

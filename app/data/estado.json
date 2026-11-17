@@ -1,11 +1,11 @@
 {
- "actualizado": "2026-11-17T04:18:11+00:00",
+ "actualizado": "2026-11-17T19:57:45+00:00",
  "periodos": {
   "ipc": "2026-10",
   "canastas": "2026-10",
-  "mayoristas": "2026-09",
-  "icc": "2026-09",
-  "obra_publica": "2026-09",
+  "mayoristas": "2026-10",
+  "icc": "2026-10",
+  "obra_publica": "2026-10",
   "emae": "2026-08",
   "ipi_manufacturero": "2026-09",
   "ipi_minero": "2026-09",
@@ -40,26 +40,26 @@
   },
   "mayoristas": {
    "id": "mayoristas",
-   "periodo": "2026-09",
-   "titulo": "Precios mayoristas de septiembre 2026",
-   "texto": "IPIM 3,2% mensual · 29,2% interanual.",
-   "valor": 3.2,
+   "periodo": "2026-10",
+   "titulo": "Precios mayoristas de octubre 2026",
+   "texto": "IPIM 1,6% mensual · 29,8% interanual.",
+   "valor": 1.6,
    "unidad": "%",
    "ruta": "#/mas/mayoristas"
   },
   "icc": {
    "id": "icc",
-   "periodo": "2026-09",
-   "titulo": "Costo de la construcción de septiembre 2026",
-   "texto": "1,5% mensual · 31,3% interanual (GBA).",
-   "valor": 1.5,
+   "periodo": "2026-10",
+   "titulo": "Costo de la construcción de octubre 2026",
+   "texto": "1,7% mensual · 31,9% interanual (GBA).",
+   "valor": 1.7,
    "unidad": "%",
    "ruta": "#/mas/construccion"
   },
   "obra_publica": {
    "id": "obra_publica",
-   "periodo": "2026-09",
-   "titulo": "Índices para obra pública de septiembre 2026",
+   "periodo": "2026-10",
+   "titulo": "Índices para obra pública de octubre 2026",
    "texto": "Se actualizaron los 21 índices del Decreto 1295/2002.",
    "valor": null,
    "unidad": "",
@@ -224,21 +224,21 @@
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "sipm_precios_mayoristas",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "icc": {
    "nombre": "Costo de la construcción (ICC)",
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "icc_precios_construccion",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "obra_publica": {
    "nombre": "Redeterminación de precios de obra pública",
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "redeterminacion_precios_contratos_obras_publicas",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "ipi_manufacturero": {
    "nombre": "Producción industrial (IPI manufacturero)",
