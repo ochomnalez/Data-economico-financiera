@@ -1,5 +1,27 @@
 [
  {
+  "id": "comex",
+  "periodo": "2026-10",
+  "titulo": "Comercio exterior de octubre 2026",
+  "texto": "Superávit comercial de US$ 3.394 millones. Exportaciones US$ 10.061 M · importaciones US$ 6.668 M.",
+  "valor": 3393.5,
+  "unidad": "US$ M",
+  "ruta": "#/mas/comercio",
+  "fecha": "2026-11-19T19:34:15+00:00",
+  "nuevo_periodo": true
+ },
+ {
+  "id": "caba_alquileres",
+  "periodo": "2026-10",
+  "titulo": "Alquileres en la Ciudad — octubre 2026",
+  "texto": "Un 2 ambientes se publicó en promedio a $825.180 por mes (+26,2% interanual).",
+  "valor": 825180.0,
+  "unidad": "$",
+  "ruta": "#/mas/caba",
+  "fecha": "2026-11-19T19:34:15+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "mayoristas",
   "periodo": "2026-10",
   "titulo": "Precios mayoristas de octubre 2026",

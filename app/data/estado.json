@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-19T02:55:37+00:00",
+ "actualizado": "2026-11-19T19:34:15+00:00",
  "periodos": {
   "ipc": "2026-10",
   "canastas": "2026-10",
@@ -13,11 +13,11 @@
   "trabajo": "2026-T2",
   "pobreza": "2026-S1",
   "crianza": "2026-10",
-  "comex": "2026-09",
+  "comex": "2026-10",
   "poblacion": "2040",
   "caba_ipc": "2026-10",
   "caba_lineas": "2026-10",
-  "caba_alquileres": "2026-09"
+  "caba_alquileres": "2026-10"
  },
  "ultimos": {
   "ipc": {
@@ -131,10 +131,10 @@
   },
   "comex": {
    "id": "comex",
-   "periodo": "2026-09",
-   "titulo": "Comercio exterior de septiembre 2026",
-   "texto": "Superávit comercial de US$ 2.976 millones. Exportaciones US$ 10.036 M · importaciones US$ 7.060 M.",
-   "valor": 2976.5,
+   "periodo": "2026-10",
+   "titulo": "Comercio exterior de octubre 2026",
+   "texto": "Superávit comercial de US$ 3.394 millones. Exportaciones US$ 10.061 M · importaciones US$ 6.668 M.",
+   "valor": 3393.5,
    "unidad": "US$ M",
    "ruta": "#/mas/comercio"
   },
@@ -168,10 +168,10 @@
   },
   "caba_alquileres": {
    "id": "caba_alquileres",
-   "periodo": "2026-09",
-   "titulo": "Alquileres en la Ciudad — septiembre 2026",
-   "texto": "Un 2 ambientes se publicó en promedio a $810.787 por mes (+26,4% interanual).",
-   "valor": 810787.0,
+   "periodo": "2026-10",
+   "titulo": "Alquileres en la Ciudad — octubre 2026",
+   "texto": "Un 2 ambientes se publicó en promedio a $825.180 por mes (+26,2% interanual).",
+   "valor": 825180.0,
    "unidad": "$",
    "ruta": "#/mas/caba"
   }
@@ -266,7 +266,7 @@
    "seccion": "Más indicadores",
    "frecuencia": "Mensual",
    "endpoint": "comercio_exterior_exportacion_bienes, comercio_exterior_importacion_bienes, comercio_exterior_nomenclaturas",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   },
   "poblacion": {
    "nombre": "Población",
@@ -294,7 +294,7 @@
    "seccion": "Ciudad de Buenos Aires",
    "frecuencia": "Mensual",
    "endpoint": "IDECBA · banco de datos",
-   "periodo": "2026-09"
+   "periodo": "2026-10"
   }
  },
  "errores": {}
