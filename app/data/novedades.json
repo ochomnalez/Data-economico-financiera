@@ -1,5 +1,16 @@
 [
  {
+  "id": "emae",
+  "periodo": "2026-09",
+  "titulo": "Actividad económica (EMAE) de septiembre 2026",
+  "texto": "La economía creció 1,1% respecto del mes anterior (desestacionalizado) y −1,2% interanual.",
+  "valor": 1.08,
+  "unidad": "%",
+  "ruta": "#/actividad",
+  "fecha": "2026-11-24T21:19:33+00:00",
+  "nuevo_periodo": true
+ },
+ {
   "id": "comex",
   "periodo": "2026-10",
   "titulo": "Comercio exterior de octubre 2026",

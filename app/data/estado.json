@@ -1,12 +1,12 @@
 {
- "actualizado": "2026-11-24T05:40:04+00:00",
+ "actualizado": "2026-11-24T21:19:33+00:00",
  "periodos": {
   "ipc": "2026-10",
   "canastas": "2026-10",
   "mayoristas": "2026-10",
   "icc": "2026-10",
   "obra_publica": "2026-10",
-  "emae": "2026-08",
+  "emae": "2026-09",
   "ipi_manufacturero": "2026-09",
   "ipi_minero": "2026-09",
   "salarios": "2026-09",
@@ -68,10 +68,10 @@
   },
   "emae": {
    "id": "emae",
-   "periodo": "2026-08",
-   "titulo": "Actividad económica (EMAE) de agosto 2026",
-   "texto": "La economía creció 0,1% respecto del mes anterior (desestacionalizado) y −1,7% interanual.",
-   "valor": 0.07,
+   "periodo": "2026-09",
+   "titulo": "Actividad económica (EMAE) de septiembre 2026",
+   "texto": "La economía creció 1,1% respecto del mes anterior (desestacionalizado) y −1,2% interanual.",
+   "valor": 1.08,
    "unidad": "%",
    "ruta": "#/actividad"
   },
@@ -196,7 +196,7 @@
    "seccion": "Actividad",
    "frecuencia": "Mensual",
    "endpoint": "estimador-mensual-de-actividad-economica-nivel-general, estimador-mensual-de-actividad-economica-sectores",
-   "periodo": "2026-08"
+   "periodo": "2026-09"
   },
   "salarios": {
    "nombre": "Índice de salarios",
