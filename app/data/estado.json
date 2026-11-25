@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-25T04:45:05+00:00",
+ "actualizado": "2026-11-25T20:33:10+00:00",
  "periodos": {
   "ipc": "2026-10",
   "canastas": "2026-10",
@@ -20,6 +20,24 @@
   "caba_alquileres": "2026-10"
  },
  "ultimos": {
+  "ipc": {
+   "id": "ipc",
+   "periodo": "2026-10",
+   "titulo": "Inflación de octubre 2026",
+   "texto": "2,2% mensual · 33,1% interanual. Respecto del mes anterior (1,9%) subió.",
+   "valor": 2.2,
+   "unidad": "%",
+   "ruta": "#/precios"
+  },
+  "canastas": {
+   "id": "canastas",
+   "periodo": "2026-10",
+   "titulo": "Canastas básicas de octubre 2026",
+   "texto": "Una familia tipo necesitó $1.690.000 para no ser pobre (CBT, +3,5% mensual) y $761.261 para no ser indigente (CBA).",
+   "valor": 1690000.0,
+   "unidad": "$",
+   "ruta": "#/precios/canastas"
+  },
   "mayoristas": {
    "id": "mayoristas",
    "periodo": "2026-10",
@@ -279,8 +297,5 @@
    "periodo": "2026-10"
   }
  },
- "errores": {
-  "ipc": "Error de red en ipc_nacional: <urlopen error [Errno -3] Temporary failure in name resolution>",
-  "canastas": "Error de red en valorizacion_canastas_cba_cbt: <urlopen error [Errno -3] Temporary failure in name resolution>"
- }
+ "errores": {}
 }
